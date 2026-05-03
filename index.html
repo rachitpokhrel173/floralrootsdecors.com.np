@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Floral Roots & Decors – Wedding Planner · Banepa, Nepal</title>
+  <meta name="description"
+    content="Banepa's premier floral decoration studio. Wedding decor, event planning, floral arrangements, bridal car decoration & chocolate bouquets. Call +977-9840261629." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#fdfaf6',
+            'cream-dark': '#f5f0ea',
+            beige: '#c8b89a',
+            'beige-light': '#e8ddd0',
+            'beige-nav': '#d4c4b0',
+            'beige-btn': '#b8a48e',
+            'beige-btn-h': '#a8947e',
+            gold: '#b8965c',
+            'gold-light': '#d4b07a',
+            text: '#3a2e26',
+            'text-mid': '#6b5a4e',
+            'text-muted': '#9c8b80',
+            border: '#e0d4c8',
+            green: '#6b8c6b',
+            'green-dark': '#1e4d35',
+            'dark': '#161210',
+            'dark-2': '#251e19',
+          },
+          fontFamily: {
+            playfair: ['"Playfair Display"', 'serif'],
+            jost: ['Jost', 'sans-serif'],
+          },
+          keyframes: {
+            heroZoom: { from: { transform: 'scale(1.05)' }, to: { transform: 'scale(1)' } },
+            fadeUp: { from: { opacity: '0', transform: 'translateY(28px)' }, to: { opacity: '1', transform: 'none' } },
+          },
+          animation: {
+            'hero-zoom': 'heroZoom 12s ease forwards',
+            'fade-up': 'fadeUp 0.9s ease both',
+            'fade-up-1': 'fadeUp 0.9s 0.15s ease both',
+            'fade-up-2': 'fadeUp 0.9s 0.3s ease both',
+            'fade-up-3': 'fadeUp 0.9s 0.45s ease both',
+            'fade-up-4': 'fadeUp 1s 0.65s ease both',
+          },
+          boxShadow: {
+            'card': '0 4px 24px rgba(100,80,60,0.08)',
+            'card-hover': '0 14px 44px rgba(100,80,60,0.16)',
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    /* ── Plan card inner border ── */
+    .plan-img-wrap {
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .plan-img-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 14px;
+      border: 1.5px solid rgba(255, 255, 255, 0.6);
+      z-index: 2;
+      pointer-events: none;
+      transition: inset 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .plan-card:hover .plan-img-wrap::before {
+      inset: 7px;
+    }
+
+    /* ── Service card inner border ── */
+    .srv-img-wrap {
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .srv-img-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      z-index: 2;
+      pointer-events: none;
+      transition: inset 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .srv-card:hover .srv-img-wrap::before {
+      inset: 6px;
+    }
+
+    /* ── Nav underline ── */
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      right: 50%;
+      height: 2px;
+      background: #fff;
+      transition: left 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), right 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      left: 14px;
+      right: 14px;
+    }
+
+    /* ── Stat dividers ── */
+    .stat-item {
+      position: relative;
+    }
+
+    .stat-item+.stat-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 52px;
+      background: rgba(255, 255, 255, 0.28);
+    }
+
+    /* ── Scroll reveal ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .rd1 {
+      transition-delay: 0.08s
+    }
+
+    .rd2 {
+      transition-delay: 0.18s
+    }
+
+    .rd3 {
+      transition-delay: 0.28s
+    }
+
+    .rd4 {
+      transition-delay: 0.38s
+    }
+
+    .rd5 {
+      transition-delay: 0.48s
+    }
+
+    .rd6 {
+      transition-delay: 0.58s
+    }
+
+    /* ── Hamburger ── */
+    .ham span {
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .ham.open span:nth-child(1) {
+      transform: translateY(6.5px) rotate(45deg);
+    }
+
+    .ham.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .ham.open span:nth-child(3) {
+      transform: translateY(-6.5px) rotate(-45deg);
+    }
+
+    /* ── Mobile menu ── */
+    .mob-menu {
+      transition: opacity 0.35s ease;
+    }
+
+    /* ── Gallery track ── */
+    #gallery-track {
+      cursor: grab;
+      user-select: none;
+    }
+
+    #gallery-track:active {
+      cursor: grabbing;
+    }
+
+    .gal-item {
+      flex-shrink: 0;
+    }
+
+    /* ── Lightbox ── */
+    #lightbox {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+
+    #lightbox.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    /* ── About decorative line ── */
+    .about-line {
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .about-line::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #b8965c;
+    }
+
+    /* ── WhatsApp tooltip ── */
+    .fab-tip::after {
+      content: '';
+      position: absolute;
+      right: -5px;
+      top: 50%;
+      transform: translateY(-50%);
+      border: 5px solid transparent;
+      border-right: none;
+      border-left-color: #3a2e26;
+    }
+
+    /* ── Form field error ── */
+    .field-wrap input.error,
+    .field-wrap select.error,
+    .field-wrap textarea.error {
+      border-color: #c0392b !important;
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg)
+      }
+
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    /* ── Pricing highlight ── */
+    .price-featured {
+      box-shadow: 0 0 0 2px #b8965c;
+    }
+
+    /* ── Wavy SVG divider ── */
+    .wave-svg {
+      display: block;
+      margin: 0 auto;
+      margin-top: 14px;
+    }
+  </style>
+</head>
+
+<body class="font-jost bg-cream text-text leading-relaxed">
+
+  <!-- ═══════════════════ TOP HEADER ═══════════════════ -->
+  <header class="bg-cream-dark border-b border-border">
+    <div
+      class="max-w-[1180px] mx-auto h-[130px] grid grid-cols-3 items-center px-8 max-[600px]:grid-cols-[1fr_auto] max-[600px]:px-5">
+
+      <!-- LEFT: Call -->
+      <div class="flex items-center justify-start gap-3 max-[600px]:hidden">
+        <div class="w-10 h-10 rounded-full bg-green flex items-center justify-center flex-shrink-0">
+          <a vlink="none" link="none" target="_blank" href="booking.floralrootsdecors.com.np"><i class="fa-solid fa-user-lock text-white text-xs"></i></a>
+        </div>
+        <div>
+          <div class="text-[0.6rem] tracking-[0.18em] uppercase text-text-muted font-medium text-left">Booking</div>
+          <a href="booking.floralrootsdecors.com.np"
+            class="font-playfair text-[0.95rem] text-text hover:text-green transition-colors duration-300">Book Now</a>
+        </div>
+        
+      </div>
+
+      <div class="th-center flex justify-center items-center">
+        <img src="Main__LOGO__flora.png" alt="Floral Roots Logo" class="h-24 md:h-28 lg:h-32 w-auto object-contain">
+      </div>
+
+      <!-- RIGHT: Admin -->
+      <div class="flex items-center justify-end gap-3 max-[600px]:hidden">
+        <div>
+          <div class="text-[0.6rem] tracking-[0.18em] uppercase text-text-muted font-medium text-right">Admin</div>
+          <a href="admin.floralrootsdecors.com.np"
+            class="font-playfair text-[0.95rem] text-text hover:text-green transition-colors duration-300">Login</a>
+        </div>
+        <div class="w-10 h-10 rounded-full bg-green flex items-center justify-center flex-shrink-0">
+          <a vlink="none" link="none" target="_blank" href="admin.floralrootsdecors.com.np"><i class="fa-solid fa-user-lock text-white text-xs"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ═══════════════════ NAVBAR ═══════════════════ -->
+  <nav id="nav" class="sticky top-0 z-[999] bg-beige-nav shadow-[0_2px_12px_rgba(100,80,60,0.12)]">
+    <div class="max-w-[1180px] mx-auto h-[44px] flex items-center justify-center relative">
+      <div class="nav-items hidden md:flex items-center">
+        <a href="#home"
+          class="nav-link active text-[0.6rem] tracking-[0.25em] uppercase font-medium text-white px-5 h-[44px] flex items-center transition-all duration-300 hover:bg-white/10">Home</a>
+        <a href="#about"
+          class="nav-link text-[0.6rem] tracking-[0.25em] uppercase font-medium text-white px-5 h-[44px] flex items-center transition-all duration-300 hover:bg-white/10">About</a>
+        <a href="#gallery"
+          class="nav-link text-[0.6rem] tracking-[0.25em] uppercase font-medium text-white px-5 h-[44px] flex items-center transition-all duration-300 hover:bg-white/10">Gallery</a>
+        <a href="#services"
+          class="nav-link text-[0.6rem] tracking-[0.25em] uppercase font-medium text-white px-5 h-[44px] flex items-center transition-all duration-300 hover:bg-white/10">Services</a>
+        <a href="#pricing"
+          class="nav-link text-[0.6rem] tracking-[0.25em] uppercase font-medium text-white px-5 h-[44px] flex items-center transition-all duration-300 hover:bg-white/10">Pricing</a>
+        <a href="#testimonials"
+          class="nav-link text-[0.6rem] tracking-[0.25em] uppercase font-medium text-white px-5 h-[44px] flex items-center transition-all duration-300 hover:bg-white/10">Reviews</a>
+        <a href="#contact"
+          class="nav-link text-[0.6rem] tracking-[0.25em] uppercase font-medium text-white px-5 h-[44px] flex items-center transition-all duration-300 hover:bg-white/10">Contact</a>
+      </div>
+      <!-- Hamburger -->
+      <button class="ham md:hidden flex flex-col gap-[5px] absolute right-5 top-1/2 -translate-y-1/2 p-1.5" id="ham"
+        aria-label="Menu">
+        <span class="block w-[22px] h-[1.5px] bg-white"></span>
+        <span class="block w-[22px] h-[1.5px] bg-white"></span>
+        <span class="block w-[22px] h-[1.5px] bg-white"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div
+    class="mob-menu fixed inset-0 z-[1200] bg-beige-nav flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none"
+    id="mob-menu">
+    <button class="absolute top-5 right-6 text-2xl text-white bg-transparent border-0 cursor-pointer"
+      id="mob-close">✕</button>
+    <a href="#home"
+      class="font-playfair text-[1.8rem] text-white hover:text-cream transition-colors duration-300">Home</a>
+    <a href="#about"
+      class="font-playfair text-[1.8rem] text-white hover:text-cream transition-colors duration-300">About</a>
+    <a href="#gallery"
+      class="font-playfair text-[1.8rem] text-white hover:text-cream transition-colors duration-300">Gallery</a>
+    <a href="#services"
+      class="font-playfair text-[1.8rem] text-white hover:text-cream transition-colors duration-300">Services</a>
+    <a href="#pricing"
+      class="font-playfair text-[1.8rem] text-white hover:text-cream transition-colors duration-300">Pricing</a>
+    <a href="#testimonials"
+      class="font-playfair text-[1.8rem] text-white hover:text-cream transition-colors duration-300">Reviews</a>
+    <a href="#contact"
+      class="font-playfair text-[1.8rem] text-white hover:text-cream transition-colors duration-300">Contact</a>
+  </div>
+
+  <!-- ═══════════════════ HERO ═══════════════════ -->
+  <section class="relative bg-dark-2 grid grid-cols-[1fr_1fr] min-h-[520px] max-h-[580px] overflow-hidden max-[768px]:grid-cols-1" id="home">
+
+    <!-- Left: Text -->
+    <div
+      class="flex flex-col justify-center gap-5 px-[60px] py-[72px] max-[960px]:px-8 max-[768px]:px-6 max-[768px]:py-12 max-[768px]:text-center max-[768px]:items-center">
+      <div
+        class="text-[0.6rem] tracking-[0.28em] uppercase text-gold font-medium flex items-center gap-3 animate-fade-up max-[768px]:justify-center">
+        <span class="w-7 h-px bg-gold inline-block"></span>Banepa · Est. 2024
+      </div>
+      <h1 class="font-playfair text-[clamp(2.2rem,4.2vw,4rem)] text-white leading-[1.1] animate-fade-up-1">
+        Rooted in Quality,<br><em class="not-italic text-gold-light">Flourishing</em><br>in Beauty.
+      </h1>
+      <p class="text-[0.88rem] text-white/55 font-light leading-[1.8] max-w-[380px] animate-fade-up-2">
+        From intimate ceremonies to grand celebrations — breathtaking floral decor crafted with love in Banepa.
+      </p>
+      <div class="flex gap-3 flex-wrap animate-fade-up-3 max-[768px]:justify-center">
+        <a href="booking.floralrootsdecors.com.np"
+          class="px-8 py-[12px] bg-beige-btn text-white text-[0.62rem] tracking-[0.22em] uppercase font-medium border-[1.5px] border-beige-btn transition-all duration-300 hover:bg-beige-btn-h hover:-translate-y-0.5">Book
+          Your Date →</a>
+        <a href="#gallery"
+          class="px-8 py-[12px] bg-transparent text-white text-[0.62rem] tracking-[0.22em] uppercase font-medium border-[1.5px] border-white/40 transition-all duration-300 hover:bg-white/10 hover:border-white hover:-translate-y-0.5">View
+          Gallery</a>
+      </div>
+    </div>
+
+    <!-- Right: Photos grid -->
+    <div class="grid grid-cols-2 grid-rows-[60%_40%] gap-[3px] bg-[#333] min-h-[420px] max-[768px]:min-h-[280px]">
+      <div class="col-span-2 overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=80" alt="Wedding decoration"
+          class="w-full h-full object-cover brightness-90 animate-hero-zoom" />
+      </div>
+      <div class="overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1478145046317-39f10e56b5e9?w=600&q=80" alt="Floral arrangement"
+          class="w-full h-full object-cover brightness-90 hover:scale-105 transition-transform duration-700" />
+      </div>
+      <div class="overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1561489396-888724a1543d?w=600&q=80" alt="Bridal bouquet"
+          class="w-full h-full object-cover brightness-90 hover:scale-105 transition-transform duration-700" />
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════ STATS ═══════════════════ -->
+  <div class="bg-beige-nav py-[44px] px-[60px] flex justify-center flex-wrap gap-0 max-[600px]:px-4 max-[600px]:py-9">
+    <div class="stat-item text-center px-14 max-[600px]:px-7 max-[600px]:py-3">
+      <span class="font-playfair text-[2.6rem] font-semibold text-white leading-none block counter" data-target="500"
+        data-suffix="+">0</span>
+      <span class="text-[0.58rem] tracking-[0.22em] uppercase text-white/65 mt-1.5 block font-medium">Events
+        Completed</span>
+    </div>
+    <div class="stat-item text-center px-14 max-[600px]:px-7 max-[600px]:py-3">
+      <span class="font-playfair text-[2.6rem] font-semibold text-white leading-none block">3+</span>
+      <span class="text-[0.58rem] tracking-[0.22em] uppercase text-white/65 mt-1.5 block font-medium">Years
+        Experience</span>
+    </div>
+    <div class="stat-item text-center px-14 max-[600px]:px-7 max-[600px]:py-3">
+      <span class="font-playfair text-[2.6rem] font-semibold text-white leading-none block">100%</span>
+      <span class="text-[0.58rem] tracking-[0.22em] uppercase text-white/65 mt-1.5 block font-medium">Client
+        Satisfaction</span>
+    </div>
+    <div class="stat-item text-center px-14 max-[600px]:px-7 max-[600px]:py-3">
+      <span class="font-playfair text-[2.6rem] font-semibold text-white leading-none block">24/7</span>
+      <span class="text-[0.58rem] tracking-[0.22em] uppercase text-white/65 mt-1.5 block font-medium">Support
+        Available</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ ABOUT ═══════════════════ -->
+  <section
+    class="py-[96px] px-[60px] bg-white grid grid-cols-2 gap-16 items-center max-[960px]:grid-cols-1 max-[960px]:gap-10 max-[960px]:px-6 max-[960px]:py-[68px]"
+    id="about">
+
+    <!-- Left: Image -->
+    <div class="relative reveal rd1">
+      <div class="plan-img-wrap plan-card">
+        <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80" alt="Our team at work"
+          class="w-full h-[480px] object-cover brightness-90 max-[960px]:h-[320px]" />
+      </div>
+      <!-- Floating badge -->
+      <div
+        class="absolute bottom-8 left-[-24px] bg-cream-dark border border-border px-6 py-4 shadow-card max-[960px]:left-4 max-[960px]:bottom-6">
+        <div class="font-playfair text-[2rem] font-semibold text-green-dark leading-none">Est.</div>
+        <div class="font-playfair text-[2rem] font-semibold text-gold leading-none">2024</div>
+        <div class="text-[0.58rem] tracking-[0.18em] uppercase text-text-muted mt-1">Banepa, Nepal</div>
+      </div>
+    </div>
+
+    <!-- Right: Content -->
+    <div class="flex flex-col gap-5 reveal rd2">
+      <div class="text-[0.6rem] tracking-[0.28em] uppercase text-gold font-medium flex items-center gap-3">
+        <span class="w-7 h-px bg-gold inline-block"></span>Our Story
+      </div>
+      <h2 class="font-playfair text-[clamp(1.7rem,2.8vw,2.6rem)] font-normal text-text leading-[1.1]">
+        Every Celebration<br>Deserves to <em class="not-italic text-gold">Bloom.</em>
+      </h2>
+      <p class="text-[0.88rem] text-text-mid font-light leading-[1.85]">
+        Founded by <strong class="font-medium text-text">Nishan Khadka</strong> in 2024, Floral Roots & Decors was born
+        from a simple belief — that every occasion, big or small, deserves to be surrounded by beauty. Based in Banepa,
+        Kavrepalanchok, we serve weddings, Bratabandhas, birthdays, and cultural ceremonies across Nepal.
+      </p>
+      <div class="flex flex-col gap-3 mt-1">
+        <div class="about-line text-[0.85rem] text-text-mid font-light">Locally sourced, handpicked fresh flowers</div>
+        <div class="about-line text-[0.85rem] text-text-mid font-light">Custom designs for every budget & vision</div>
+        <div class="about-line text-[0.85rem] text-text-mid font-light">Full-service from planning to execution</div>
+        <div class="about-line text-[0.85rem] text-text-mid font-light">24/7 support — always a call away</div>
+      </div>
+      <div class="flex gap-3 mt-3 flex-wrap">
+        <a href="#services"
+          class="px-8 py-[12px] bg-green-dark text-white text-[0.62rem] tracking-[0.22em] uppercase font-medium transition-all duration-300 hover:bg-[#163d28] hover:-translate-y-0.5">Our
+          Services</a>
+        <a href="booking.floralrootsdecors.com.np"
+          class="px-8 py-[12px] bg-transparent text-text text-[0.62rem] tracking-[0.22em] uppercase font-medium border-[1.5px] border-border transition-all duration-300 hover:border-gold hover:text-gold hover:-translate-y-0.5">Book
+          Now</a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════ SERVICES ═══════════════════ -->
+  <section class="py-[96px] px-[60px] bg-cream max-[960px]:py-[68px] max-[960px]:px-6" id="services">
+
+    <!-- Header -->
+    <div class="text-center mb-14 reveal">
+      <div class="text-[0.6rem] tracking-[0.28em] uppercase text-text-muted font-medium mb-1.5">What We Offer</div>
+      <h2 class="font-playfair text-[clamp(1.7rem,2.8vw,2.6rem)] font-normal text-text">Every Occasion, <em
+          class="not-italic text-gold">Beautifully Adorned.</em></h2>
+      <svg class="wave-svg" width="180" height="22" viewBox="0 0 180 22" fill="none">
+        <path d="M10 11 Q30 3 50 11 Q70 19 90 11 Q110 3 130 11 Q150 19 170 11" stroke="#c8b89a" stroke-width="1.2"
+          fill="none" />
+        <circle cx="90" cy="11" r="3.5" fill="#c8b89a" opacity=".7" />
+        <circle cx="50" cy="11" r="2" fill="#c8b89a" opacity=".45" />
+        <circle cx="130" cy="11" r="2" fill="#c8b89a" opacity=".45" />
+      </svg>
+    </div>
+
+    <!-- Services grid -->
+    <div class="grid grid-cols-3 gap-7 max-[960px]:grid-cols-2 max-[600px]:grid-cols-1">
+
+      <!-- Service 1 -->
+      <div
+        class="srv-card bg-white border border-border transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1.5 reveal rd1">
+        <div class="srv-img-wrap">
+          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80" alt="Wedding Decor"
+            class="w-full h-[200px] object-cover brightness-90 transition-transform duration-700 hover:scale-105" />
+        </div>
+        <div class="px-6 pb-6">
+          <div class="text-[1.4rem] mb-2">💍</div>
+          <h3 class="font-playfair text-[1.05rem] text-text mb-2">Wedding Decor</h3>
+          <p class="text-[0.8rem] text-text-mid font-light leading-[1.7]">Mandap, stage, venue, car decoration — every
+            detail crafted for your perfect day.</p>
+          <a href="booking.floralrootsdecors.com.np"
+            class="inline-block mt-4 text-[0.62rem] tracking-[0.15em] uppercase text-green-dark font-medium hover:text-gold transition-colors duration-300">Learn
+            More →</a>
+        </div>
+      </div>
+
+      <!-- Service 2 -->
+      <div
+        class="srv-card bg-white border border-border transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1.5 reveal rd2">
+        <div class="srv-img-wrap">
+          <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&q=80" alt="Event Planning"
+            class="w-full h-[200px] object-cover brightness-90 transition-transform duration-700 hover:scale-105" />
+        </div>
+        <div class="px-6 pb-6">
+          <div class="text-[1.4rem] mb-2">🎊</div>
+          <h3 class="font-playfair text-[1.05rem] text-text mb-2">Event Planning</h3>
+          <p class="text-[0.8rem] text-text-mid font-light leading-[1.7]">Birthdays, Bratabandha, and all ceremonies —
+            we plan every moment beautifully.</p>
+          <a href="booking.floralrootsdecors.com.np"
+            class="inline-block mt-4 text-[0.62rem] tracking-[0.15em] uppercase text-green-dark font-medium hover:text-gold transition-colors duration-300">Learn
+            More →</a>
+        </div>
+      </div>
+
+      <!-- Service 3 -->
+      <div
+        class="srv-card bg-white border border-border transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1.5 reveal rd3">
+        <div class="srv-img-wrap">
+          <img src="https://images.unsplash.com/photo-1561489396-888724a1543d?w=600&q=80" alt="Floral Arrangements"
+            class="w-full h-[200px] object-cover brightness-90 transition-transform duration-700 hover:scale-105" />
+        </div>
+        <div class="px-6 pb-6">
+          <div class="text-[1.4rem] mb-2">🌸</div>
+          <h3 class="font-playfair text-[1.05rem] text-text mb-2">Floral Arrangements</h3>
+          <p class="text-[0.8rem] text-text-mid font-light leading-[1.7]">Bouquets, garlands, and centerpieces —
+            freshness and fragrance in every petal.</p>
+          <a href="booking.floralrootsdecors.com.np"
+            class="inline-block mt-4 text-[0.62rem] tracking-[0.15em] uppercase text-green-dark font-medium hover:text-gold transition-colors duration-300">Learn
+            More →</a>
+        </div>
+      </div>
+
+      <!-- Service 4 -->
+      <div
+        class="srv-card bg-white border border-border transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1.5 reveal rd1">
+        <div class="srv-img-wrap">
+          <img src="https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?w=600&q=80" alt="Home & Pandal"
+            class="w-full h-[200px] object-cover brightness-90 transition-transform duration-700 hover:scale-105" />
+        </div>
+        <div class="px-6 pb-6">
+          <div class="text-[1.4rem] mb-2">🏠</div>
+          <h3 class="font-playfair text-[1.05rem] text-text mb-2">Home & Pandal</h3>
+          <p class="text-[0.8rem] text-text-mid font-light leading-[1.7]">Dashain, Tihar, house blessings — festive
+            decoration rooted in tradition.</p>
+          <a href="booking.floralrootsdecors.com.np"
+            class="inline-block mt-4 text-[0.62rem] tracking-[0.15em] uppercase text-green-dark font-medium hover:text-gold transition-colors duration-300">Learn
+            More →</a>
+        </div>
+      </div>
+
+      <!-- Service 5 -->
+      <div
+        class="srv-card bg-white border border-border transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1.5 reveal rd2">
+        <div class="srv-img-wrap">
+          <img src="https://images.unsplash.com/photo-1549417229-aa67d3263c09?w=600&q=80" alt="Bridal Car"
+            class="w-full h-[200px] object-cover brightness-90 transition-transform duration-700 hover:scale-105" />
+        </div>
+        <div class="px-6 pb-6">
+          <div class="text-[1.4rem] mb-2">🚗</div>
+          <h3 class="font-playfair text-[1.05rem] text-text mb-2">Bridal Car Decor</h3>
+          <p class="text-[0.8rem] text-text-mid font-light leading-[1.7]">Fresh & artificial flower car decoration for
+            the most memorable arrival.</p>
+          <a href="booking.floralrootsdecors.com.np"
+            class="inline-block mt-4 text-[0.62rem] tracking-[0.15em] uppercase text-green-dark font-medium hover:text-gold transition-colors duration-300">Learn
+            More →</a>
+        </div>
+      </div>
+
+      <!-- Service 6 -->
+      <div
+        class="srv-card bg-white border border-border transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1.5 reveal rd3">
+        <div class="srv-img-wrap">
+          <img src="https://images.unsplash.com/photo-1604914585501-1d1c58c21fc8?w=600&q=80" alt="Chocolate Bouquets"
+            class="w-full h-[200px] object-cover brightness-90 transition-transform duration-700 hover:scale-105" />
+        </div>
+        <div class="px-6 pb-6">
+          <div class="text-[1.4rem] mb-2">🎁</div>
+          <h3 class="font-playfair text-[1.05rem] text-text mb-2">Chocolate Bouquets</h3>
+          <p class="text-[0.8rem] text-text-mid font-light leading-[1.7]">Custom gift bouquets for every occasion —
+            sweet surprises, beautifully wrapped.</p>
+          <a href="booking.floralrootsdecors.com.np"
+            class="inline-block mt-4 text-[0.62rem] tracking-[0.15em] uppercase text-green-dark font-medium hover:text-gold transition-colors duration-300">Learn
+            More →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════ GALLERY ═══════════════════ -->
+  <section class="py-[96px] bg-dark-2 max-[960px]:py-[68px]" id="gallery">
+
+    <div class="px-[60px] max-[960px]:px-6">
+      <div class="flex items-end justify-between mb-10 reveal">
+        <div>
+          <div class="text-[0.6rem] tracking-[0.28em] uppercase text-gold font-medium mb-1.5 flex items-center gap-3">
+            <span class="w-7 h-px bg-gold inline-block"></span>Our Work
+          </div>
+          <h2 class="font-playfair text-[clamp(1.7rem,2.8vw,2.6rem)] font-normal text-white">A Glimpse of <em
+              class="not-italic text-gold-light">Our Beauty.</em></h2>
+        </div>
+        <div class="flex gap-2.5 max-[600px]:hidden">
+          <button id="gal-prev"
+            class="w-10 h-10 border border-white/25 text-white flex items-center justify-center transition-all duration-300 hover:bg-white/10 hover:border-white/60">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+          <button id="gal-next"
+            class="w-10 h-10 border border-white/25 text-white flex items-center justify-center transition-all duration-300 hover:bg-white/10 hover:border-white/60">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scrollable track -->
+    <div id="gallery-track" class="flex gap-4 overflow-x-auto pb-2 px-[60px] max-[960px]:px-6 scrollbar-hide"
+      style="scrollbar-width:none;-ms-overflow-style:none;">
+
+      <div class="gal-item w-[300px] group cursor-pointer" data-title="Wedding Mandap" data-loc="Banepa, 2025">
+        <div class="overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80" alt="Wedding"
+            class="w-full h-[360px] object-cover brightness-90 group-hover:scale-105 group-hover:brightness-100 transition-all duration-700" />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+            <div>
+              <div class="text-white font-playfair text-[1rem]">Wedding Mandap</div>
+              <div class="text-white/65 text-[0.72rem] tracking-wider">Banepa, 2025</div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-3 flex items-center justify-between">
+          <span class="text-[0.65rem] tracking-[0.16em] uppercase text-beige-nav font-medium">Wedding</span>
+          <span class="text-[0.65rem] text-white/35">2025</span>
+        </div>
+      </div>
+
+      <div class="gal-item w-[300px] group cursor-pointer" data-title="Bridal Bouquet" data-loc="Kavrepalanchok, 2025">
+        <div class="overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1561489396-888724a1543d?w=600&q=80" alt="Bouquet"
+            class="w-full h-[360px] object-cover brightness-90 group-hover:scale-105 group-hover:brightness-100 transition-all duration-700" />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+            <div>
+              <div class="text-white font-playfair text-[1rem]">Bridal Bouquet</div>
+              <div class="text-white/65 text-[0.72rem] tracking-wider">Kavrepalanchok, 2025</div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-3 flex items-center justify-between">
+          <span class="text-[0.65rem] tracking-[0.16em] uppercase text-beige-nav font-medium">Floral</span>
+          <span class="text-[0.65rem] text-white/35">2025</span>
+        </div>
+      </div>
+
+      <div class="gal-item w-[300px] group cursor-pointer" data-title="Birthday Decor" data-loc="Banepa, 2024">
+        <div class="overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&q=80" alt="Birthday"
+            class="w-full h-[360px] object-cover brightness-90 group-hover:scale-105 group-hover:brightness-100 transition-all duration-700" />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+            <div>
+              <div class="text-white font-playfair text-[1rem]">Birthday Decor</div>
+              <div class="text-white/65 text-[0.72rem] tracking-wider">Banepa, 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-3 flex items-center justify-between">
+          <span class="text-[0.65rem] tracking-[0.16em] uppercase text-beige-nav font-medium">Birthday</span>
+          <span class="text-[0.65rem] text-white/35">2024</span>
+        </div>
+      </div>
+
+      <div class="gal-item w-[300px] group cursor-pointer" data-title="Bratabandha Ceremony"
+        data-loc="Kavrepalanchok, 2024">
+        <div class="overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80" alt="Bratabandha"
+            class="w-full h-[360px] object-cover brightness-90 group-hover:scale-105 group-hover:brightness-100 transition-all duration-700" />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+            <div>
+              <div class="text-white font-playfair text-[1rem]">Bratabandha Ceremony</div>
+              <div class="text-white/65 text-[0.72rem] tracking-wider">Kavrepalanchok, 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-3 flex items-center justify-between">
+          <span class="text-[0.65rem] tracking-[0.16em] uppercase text-beige-nav font-medium">Ceremony</span>
+          <span class="text-[0.65rem] text-white/35">2024</span>
+        </div>
+      </div>
+
+      <div class="gal-item w-[300px] group cursor-pointer" data-title="Venue Decoration" data-loc="Banepa, 2025">
+        <div class="overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1478145046317-39f10e56b5e9?w=600&q=80" alt="Venue"
+            class="w-full h-[360px] object-cover brightness-90 group-hover:scale-105 group-hover:brightness-100 transition-all duration-700" />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+            <div>
+              <div class="text-white font-playfair text-[1rem]">Venue Decoration</div>
+              <div class="text-white/65 text-[0.72rem] tracking-wider">Banepa, 2025</div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-3 flex items-center justify-between">
+          <span class="text-[0.65rem] tracking-[0.16em] uppercase text-beige-nav font-medium">Wedding</span>
+          <span class="text-[0.65rem] text-white/35">2025</span>
+        </div>
+      </div>
+
+      <div class="gal-item w-[300px] group cursor-pointer" data-title="Chocolate Bouquet" data-loc="Banepa, 2024">
+        <div class="overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1604914585501-1d1c58c21fc8?w=600&q=80" alt="Chocolate Bouquet"
+            class="w-full h-[360px] object-cover brightness-90 group-hover:scale-105 group-hover:brightness-100 transition-all duration-700" />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+            <div>
+              <div class="text-white font-playfair text-[1rem]">Chocolate Bouquet</div>
+              <div class="text-white/65 text-[0.72rem] tracking-wider">Banepa, 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-3 flex items-center justify-between">
+          <span class="text-[0.65rem] tracking-[0.16em] uppercase text-beige-nav font-medium">Gift</span>
+          <span class="text-[0.65rem] text-white/35">2024</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="fixed inset-0 z-[1400] bg-black/90 flex items-center justify-center px-5">
+    <button id="lb-close"
+      class="absolute top-5 right-7 text-white/70 hover:text-white text-[1.6rem] transition-colors duration-200 bg-transparent border-0 cursor-pointer">✕</button>
+    <div class="max-w-[880px] w-full">
+      <img id="lb-img" src="" alt="" class="w-full max-h-[78vh] object-contain" />
+      <div class="flex items-center justify-between mt-4 px-1">
+        <div id="lb-title" class="font-playfair text-white text-[1.05rem]"></div>
+        <div id="lb-loc" class="text-white/45 text-[0.75rem] tracking-wider"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ PRICING ═══════════════════ -->
+  <section class="py-[96px] px-[60px] bg-white max-[960px]:py-[68px] max-[960px]:px-6" id="pricing">
+
+    <div class="text-center mb-14 reveal">
+      <div class="text-[0.6rem] tracking-[0.28em] uppercase text-text-muted font-medium mb-1.5">Packages</div>
+      <h2 class="font-playfair text-[clamp(1.7rem,2.8vw,2.6rem)] font-normal text-text">Our Event <em
+          class="not-italic text-gold">Packages.</em></h2>
+      <svg class="wave-svg" width="180" height="22" viewBox="0 0 180 22" fill="none">
+        <path d="M10 11 Q30 3 50 11 Q70 19 90 11 Q110 3 130 11 Q150 19 170 11" stroke="#c8b89a" stroke-width="1.2"
+          fill="none" />
+        <circle cx="90" cy="11" r="3.5" fill="#c8b89a" opacity=".7" />
+        <circle cx="50" cy="11" r="2" fill="#c8b89a" opacity=".45" />
+        <circle cx="130" cy="11" r="2" fill="#c8b89a" opacity=".45" />
+      </svg>
+    </div>
+
+    <div class="grid grid-cols-3 gap-7 max-[960px]:grid-cols-1">
+
+      <!-- Essential -->
+      <div
+        class="plan-card bg-cream flex flex-col overflow-hidden border border-border transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1.5 reveal rd1">
+        <div class="plan-img-wrap">
+          <img src="https://images.unsplash.com/photo-1561489396-888724a1543d?w=700&q=80" alt="Essential"
+            class="w-full h-[200px] object-cover brightness-90" />
+        </div>
+        <div class="px-8 pb-8 flex-1 flex flex-col items-center text-center">
+          <div class="font-playfair text-[1.2rem] italic text-text mb-5">Essential</div>
+          <ul class="w-full mb-6 text-left">
+            <li class="text-[0.82rem] text-text-mid font-light py-[9px] border-b border-border border-t">Bridal Bouquet
+            </li>
+            <li class="text-[0.82rem] text-text-mid font-light py-[9px] border-b border-border">Bridal Car Decor</li>
+            <li class="text-[0.82rem] text-text-mid font-light py-[9px] border-b border-border">Stage Backdrop</li>
+            <li class="text-[0.82rem] text-text-mid font-light py-[9px] border-b border-border">Basic Floral Setup</li>
+          </ul>
+          <div class="text-[0.6rem] tracking-[0.18em] uppercase text-text-muted flex items-baseline gap-1.5 mb-5">from
+            <span class="font-playfair text-[2rem] font-semibold text-text">Rs. 25,000</span>
+          </div>
+          <a href="booking.floralrootsdecors.com.np"
+            class="inline-block px-8 py-[11px] bg-beige-btn text-white text-[0.62rem] tracking-[0.22em] uppercase font-medium border-[1.5px] border-beige-btn transition-all duration-300 hover:bg-beige-btn-h hover:-translate-y-px">Book
+            Now</a>
+        </div>
+      </div>
+
+      <!-- Signature (featured) -->
+      <div
+        class="plan-card price-featured bg-cream flex flex-col overflow-hidden transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1.5 reveal rd2 relative">
+        <div
+          class="absolute top-3 right-3 z-10 bg-gold text-white text-[0.55rem] tracking-[0.18em] uppercase font-medium px-3 py-1">
+          Most Popular</div>
+        <div class="plan-img-wrap">
+          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=700&q=80" alt="Signature"
+            class="w-full h-[200px] object-cover brightness-90" />
+        </div>
+        <div class="px-8 pb-8 flex-1 flex flex-col items-center text-center">
+          <div class="font-playfair text-[1.2rem] italic text-text mb-5">Signature</div>
+          <ul class="w-full mb-6 text-left">
+            <li class="text-[0.82rem] text-text-mid font-light py-[9px] border-b border-border border-t">Full Wedding
+              Decor</li>
+            <li class="text-[0.82rem] text-text-mid font-light py-[9px] border-b border-border">Mandap & Stage</li>
+            <li class="text-[0.82rem] text-text-mid font-light py-[9px] border-b border-border">Bridal Car & Bouquets
+            </li>
+            <li class="text-[0.82rem] text-text-mid font-light py-[9px] border-b border-border">Aisle & Table Decor</li>
+          </ul>
+          <div class="text-[0.6rem] tracking-[0.18em] uppercase text-text-muted flex items-baseline gap-1.5 mb-5">from
+            <span class="font-playfair text-[2rem] font-semibold text-text">Rs. 65,000</span>
+          </div>
+          <a href="booking.floralrootsdecors.com.np"
+            class="inline-block px-8 py-[11px] bg-green-dark text-white text-[0.62rem] tracking-[0.22em] uppercase font-medium border-[1.5px] border-green-dark transition-all duration-300 hover:bg-[#163d28] hover:-translate-y-px">Book
+            Now</a>
+        </div>
+      </div>
+
+      <!-- Premium -->
+      <div
+        class="plan-card bg-cream flex flex-col overflow-hidden border border-border transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1.5 reveal rd3">
+        <div class="plan-img-wrap">
+          <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=700&q=80" alt="Premium"
+            class="w-full h-[200px] object-cover brightness-90" />
+        </div>
+        <div class="px-8 pb-8 flex-1 flex flex-col items-center text-center">
+          <div class="font-playfair text-[1.2rem] italic text-text mb-5">Premium</div>
+          <ul class="w-full mb-6 text-left">
+            <li class="text-[0.82rem] text-text-mid font-light py-[9px] border-b border-border border-t">All Signature
+              Inclusions</li>
+            <li class="text-[0.82rem] text-text-mid font-light py-[9px] border-b border-border">Venue & Pandal Decor
+            </li>
+            <li class="text-[0.82rem] text-text-mid font-light py-[9px] border-b border-border">Chocolate Bouquet Gifts
+            </li>
+            <li class="text-[0.82rem] text-text-mid font-light py-[9px] border-b border-border">Dedicated Day-of Team
+            </li>
+          </ul>
+          <div class="text-[0.6rem] tracking-[0.18em] uppercase text-text-muted flex items-baseline gap-1.5 mb-5">from
+            <span class="font-playfair text-[2rem] font-semibold text-text">Rs. 1,10,000</span>
+          </div>
+          <a href="booking.floralrootsdecors.com.np"
+            class="inline-block px-8 py-[11px] bg-beige-btn text-white text-[0.62rem] tracking-[0.22em] uppercase font-medium border-[1.5px] border-beige-btn transition-all duration-300 hover:bg-beige-btn-h hover:-translate-y-px">Book
+            Now</a>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="text-center text-[0.78rem] text-text-muted font-light mt-8 reveal">All packages are customizable. <a
+        href="booking.floralrootsdecors.com.np"
+        class="text-green-dark underline underline-offset-2 hover:text-gold transition-colors duration-300">Contact
+        us</a> for a custom quote.</p>
+
+  </section>
+
+  <!-- ═══════════════════ TESTIMONIALS ═══════════════════ -->
+  <section class="py-[96px] px-[60px] bg-cream-dark max-[960px]:py-[68px] max-[960px]:px-6" id="testimonials">
+
+    <div class="text-center mb-14 reveal">
+      <div class="text-[0.6rem] tracking-[0.28em] uppercase text-text-muted font-medium mb-1.5">Happy Clients</div>
+      <h2 class="font-playfair text-[clamp(1.7rem,2.8vw,2.6rem)] font-normal text-text">Kind Words from <em
+          class="not-italic text-gold">Our Families.</em></h2>
+      <svg class="wave-svg" width="180" height="22" viewBox="0 0 180 22" fill="none">
+        <path d="M10 11 Q30 3 50 11 Q70 19 90 11 Q110 3 130 11 Q150 19 170 11" stroke="#c8b89a" stroke-width="1.2"
+          fill="none" />
+        <circle cx="90" cy="11" r="3.5" fill="#c8b89a" opacity=".7" />
+        <circle cx="50" cy="11" r="2" fill="#c8b89a" opacity=".45" />
+        <circle cx="130" cy="11" r="2" fill="#c8b89a" opacity=".45" />
+      </svg>
+    </div>
+
+    <div class="grid grid-cols-3 gap-7 max-[960px]:grid-cols-1">
+
+      <div
+        class="bg-white p-9 border border-border transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1 reveal rd1">
+        <div class="text-gold text-[0.9rem] tracking-[3px] mb-4">★★★★★</div>
+        <p class="font-playfair italic text-[0.92rem] leading-[1.85] text-text-mid mb-6">"Floral Roots completely
+          transformed our wedding venue. Every corner was breathtaking — from the mandap to the bridal car. Our guests
+          couldn't stop complimenting the decor!"</p>
+        <div class="flex items-center gap-3 pt-[18px] border-t border-border">
+          <div
+            class="w-[42px] h-[42px] rounded-full bg-green-dark flex items-center justify-center font-playfair text-base text-white font-medium flex-shrink-0">
+            P</div>
+          <div>
+            <span class="text-[0.85rem] font-medium text-text block">Priya Shrestha</span>
+            <span class="text-[0.7rem] text-text-muted">Wedding Client · Banepa, 2025</span>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="bg-white p-9 border border-border transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1 reveal rd2">
+        <div class="text-gold text-[0.9rem] tracking-[3px] mb-4">★★★★★</div>
+        <p class="font-playfair italic text-[0.92rem] leading-[1.85] text-text-mid mb-6">"We hired them for our son's
+          Bratabandha and were amazed by the detail in every arrangement. The team was punctual, professional, and
+          incredibly creative."</p>
+        <div class="flex items-center gap-3 pt-[18px] border-t border-border">
+          <div
+            class="w-[42px] h-[42px] rounded-full bg-green-dark flex items-center justify-center font-playfair text-base text-white font-medium flex-shrink-0">
+            R</div>
+          <div>
+            <span class="text-[0.85rem] font-medium text-text block">Ramesh Adhikari</span>
+            <span class="text-[0.7rem] text-text-muted">Bratabandha Client · Banepa, 2024</span>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="bg-white p-9 border border-border transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1 reveal rd3">
+        <div class="text-gold text-[0.9rem] tracking-[3px] mb-4">★★★★★</div>
+        <p class="font-playfair italic text-[0.92rem] leading-[1.85] text-text-mid mb-6">"Nishan and the team did a
+          stunning job for our daughter's birthday. The chocolate bouquet was a huge hit! Super responsive on WhatsApp
+          and very reasonably priced."</p>
+        <div class="flex items-center gap-3 pt-[18px] border-t border-border">
+          <div
+            class="w-[42px] h-[42px] rounded-full bg-green-dark flex items-center justify-center font-playfair text-base text-white font-medium flex-shrink-0">
+            S</div>
+          <div>
+            <span class="text-[0.85rem] font-medium text-text block">Sunita Tamang</span>
+            <span class="text-[0.7rem] text-text-muted">Birthday Client · Kavrepalanchok, 2024</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════ BOOKING FORM ═══════════════════ -->
+  <section class="bg-green-dark py-[88px] px-[60px] max-[960px]:py-[68px] max-[960px]:px-6" id="booking">
+    <div
+      class="max-w-[1100px] mx-auto grid grid-cols-[1fr_1.25fr] gap-16 items-center max-[960px]:grid-cols-1 max-[960px]:gap-10">
+
+      <!-- Left: Info -->
+      <div class="reveal">
+        <div class="text-[0.6rem] tracking-[0.28em] uppercase text-gold font-medium mb-2 flex items-center gap-3">
+          <span class="w-7 h-px bg-gold inline-block"></span>Reserve Your Date
+        </div>
+        <h2 class="font-playfair text-[clamp(1.7rem,2.8vw,2.6rem)] font-normal text-white leading-[1.1] mb-5">Let's Plan
+          Your <em class="not-italic text-gold-light">Perfect Day.</em></h2>
+        <p class="text-[0.86rem] text-white/55 font-light leading-[1.85] mb-7">With limited auspicious wedding dates
+          remaining in 2082/83, don't wait. We reply within 24 hours.</p>
+
+        <!-- Urgency note -->
+        <div class="bg-white/[0.07] border border-gold/30 rounded-sm px-5 py-4 flex items-center gap-3 mb-7">
+          <div class="w-2 h-2 rounded-full bg-gold flex-shrink-0"></div>
+          <div class="text-[0.82rem] text-gold-light leading-[1.6]"><strong>Only 6 dates left</strong> in 2082/83 — book
+            now to secure yours.</div>
+        </div>
+
+        <!-- Contact details -->
+        <div class="flex flex-col gap-3">
+          <div class="text-[0.82rem] text-white/50 font-light flex items-center gap-3">
+            <i class="fa-solid fa-phone text-gold text-[0.75rem]"></i>
+            <a href="tel:9840261629" class="hover:text-white transition-colors duration-300">+977-9840261629</a>
+          </div>
+          <div class="text-[0.82rem] text-white/50 font-light flex items-center gap-3">
+            <i class="fa-solid fa-envelope text-gold text-[0.75rem]"></i>
+            <a href="mailto:floralrootsdecors@gmail.com"
+              class="hover:text-white transition-colors duration-300">floralrootsdecors@gmail.com</a>
+          </div>
+          <div class="text-[0.82rem] text-white/50 font-light flex items-center gap-3">
+            <i class="fa-solid fa-location-dot text-gold text-[0.75rem]"></i>Banepa-Nala Road, Kavrepalanchok
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="bg-cream rounded-sm p-9 reveal rd2 max-[600px]:p-6" id="booking-form-wrap">
+        <h3 class="font-playfair text-[1.25rem] text-text mb-6">Book a Consultation</h3>
+
+        <div class="grid grid-cols-2 gap-4 mb-4 max-[480px]:grid-cols-1">
+          <div class="field-wrap" id="f-name">
+            <input id="inp-name" type="text" placeholder="Your Name"
+              class="w-full bg-cream-dark border border-border px-4 py-3 text-[0.84rem] text-text placeholder-text-muted outline-none transition-colors duration-200 focus:border-gold" />
+          </div>
+          <div class="field-wrap" id="f-phone">
+            <input id="inp-phone" type="tel" placeholder="Phone Number"
+              class="w-full bg-cream-dark border border-border px-4 py-3 text-[0.84rem] text-text placeholder-text-muted outline-none transition-colors duration-200 focus:border-gold" />
+          </div>
+          <div class="field-wrap" id="f-event">
+            <select id="inp-event"
+              class="w-full bg-cream-dark border border-border px-4 py-3 text-[0.84rem] text-text outline-none transition-colors duration-200 focus:border-gold appearance-none">
+              <option value="">Event Type</option>
+              <option>Wedding</option>
+              <option>Bratabandha</option>
+              <option>Birthday</option>
+              <option>Dashain / Tihar</option>
+              <option>Other Ceremony</option>
+            </select>
+          </div>
+          <div class="field-wrap" id="f-date">
+            <input id="inp-date" type="date"
+              class="w-full bg-cream-dark border border-border px-4 py-3 text-[0.84rem] text-text outline-none transition-colors duration-200 focus:border-gold" />
+          </div>
+        </div>
+
+        <!-- Budget pills -->
+        <div class="flex gap-2 flex-wrap mb-5">
+          <span class="text-[0.7rem] text-text-muted font-medium mr-1 flex items-center">Budget:</span>
+          <button onclick="selectBudget(this)"
+            class="budget-pill text-[0.68rem] px-3 py-1.5 border border-border text-text-muted transition-all duration-200 hover:border-gold hover:text-gold">Under
+            2L</button>
+          <button onclick="selectBudget(this)"
+            class="budget-pill text-[0.68rem] px-3 py-1.5 border border-gold bg-green-dark text-white transition-all duration-200">2L
+            – 5L</button>
+          <button onclick="selectBudget(this)"
+            class="budget-pill text-[0.68rem] px-3 py-1.5 border border-border text-text-muted transition-all duration-200 hover:border-gold hover:text-gold">5L
+            – 10L</button>
+          <button onclick="selectBudget(this)"
+            class="budget-pill text-[0.68rem] px-3 py-1.5 border border-border text-text-muted transition-all duration-200 hover:border-gold hover:text-gold">10L+</button>
+        </div>
+
+        <button id="submit-btn" onclick="submitBooking()"
+          class="w-full bg-text text-cream py-[14px] text-[0.65rem] tracking-[0.22em] uppercase font-medium transition-all duration-300 hover:bg-dark hover:-translate-y-px flex items-center justify-center gap-2">
+          Send Inquiry →
+        </button>
+        <p class="text-[0.72rem] text-text-muted text-center mt-3 font-light">We reply within 24 hours</p>
+      </div>
+
+      <!-- Success state -->
+      <div class="bg-cream rounded-sm p-9 items-center justify-center flex-col text-center hidden reveal rd2"
+        id="form-success">
+        <div class="text-[2.5rem] mb-4">🌸</div>
+        <h3 class="font-playfair text-[1.4rem] text-text mb-3">Thank You!</h3>
+        <p class="text-[0.85rem] text-text-mid font-light leading-[1.8]">Your inquiry has been received. We'll get back
+          to you within 24 hours to confirm your booking.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════ CONTACT / FIND US ═══════════════════ -->
+  <div
+    class="py-[96px] px-[60px] bg-white grid grid-cols-2 gap-16 items-center max-[960px]:grid-cols-1 max-[960px]:px-6 max-[960px]:py-[68px] max-[960px]:gap-10"
+    id="contact">
+
+    <!-- Left: Info -->
+    <div class="reveal">
+      <div class="text-[0.6rem] tracking-[0.28em] uppercase text-text-muted font-medium mb-1.5">Find Us</div>
+      <h2 class="font-playfair text-[clamp(1.7rem,2.8vw,2.6rem)] font-normal text-text mb-8">Always Here, <em
+          class="not-italic text-gold">Always Open.</em></h2>
+      <div class="flex flex-col">
+        <div class="flex gap-4 items-start py-5 border-b border-border">
+          <div class="w-10 h-10 bg-green rounded-sm flex items-center justify-center flex-shrink-0">
+            <svg class="w-[17px] h-[17px] stroke-white fill-none" stroke-width="1.7" viewBox="0 0 24 24">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+          </div>
+          <div>
+            <div class="text-[0.6rem] tracking-[0.16em] uppercase text-text-muted font-medium mb-1">Location</div>
+            <div class="text-[0.88rem] text-text leading-[1.7]">Banepa-Nala Road, Banepa<br>Kavrepalanchok 45210, Nepal
+            </div>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start py-5 border-b border-border">
+          <div class="w-10 h-10 bg-green rounded-sm flex items-center justify-center flex-shrink-0">
+            <svg class="w-[17px] h-[17px] stroke-white fill-none" stroke-width="1.7" viewBox="0 0 24 24">
+              <path
+                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.69 12 19.79 19.79 0 011.6 3.39 2 2 0 013.59 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.91 8.63a16 16 0 006 6l.91-.91a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+            </svg>
+          </div>
+          <div>
+            <div class="text-[0.6rem] tracking-[0.16em] uppercase text-text-muted font-medium mb-1">Phone</div>
+            <div class="text-[0.88rem] text-text leading-[1.7]">
+              <a href="tel:9840261629" class="hover:text-green transition-colors duration-300">+977-9840261629</a><br>
+              <a href="tel:9843729421" class="hover:text-green transition-colors duration-300">+977-9843729421</a>
+            </div>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start py-5 border-b border-border">
+          <div class="w-10 h-10 bg-green rounded-sm flex items-center justify-center flex-shrink-0">
+            <svg class="w-[17px] h-[17px] stroke-white fill-none" stroke-width="1.7" viewBox="0 0 24 24">
+              <rect x="2" y="4" width="20" height="16" rx="2" />
+              <path d="M2 7l10 6 10-6" />
+            </svg>
+          </div>
+          <div>
+            <div class="text-[0.6rem] tracking-[0.16em] uppercase text-text-muted font-medium mb-1">Email</div>
+            <a href="mailto:floralrootsdecors@gmail.com"
+              class="text-[0.88rem] text-text hover:text-green transition-colors duration-300">floralrootsdecors@gmail.com</a>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start py-5 border-b border-border">
+          <div class="w-10 h-10 bg-green rounded-sm flex items-center justify-center flex-shrink-0">
+            <svg class="w-[17px] h-[17px] stroke-white fill-none" stroke-width="1.7" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M12 6v6l4 2" />
+            </svg>
+          </div>
+          <div>
+            <div class="text-[0.6rem] tracking-[0.16em] uppercase text-text-muted font-medium mb-1">Hours</div>
+            <div class="text-[0.88rem] text-text">Open Always · 24/7 Support</div>
+          </div>
+        </div>
+      </div>
+      <!-- Socials -->
+      <div class="flex gap-2.5 mt-7 flex-wrap">
+        <a href="https://www.facebook.com/people/Floral-Roots-Decors/61567198617934/" target="_blank"
+          class="px-5 py-[9px] border border-border text-[0.62rem] tracking-[0.14em] uppercase text-text-mid font-medium transition-all duration-300 hover:bg-beige-btn hover:border-beige-btn hover:text-white">Facebook</a>
+        <a href="https://www.instagram.com/floralrootsanddecors6" target="_blank"
+          class="px-5 py-[9px] border border-border text-[0.62rem] tracking-[0.14em] uppercase text-text-mid font-medium transition-all duration-300 hover:bg-beige-btn hover:border-beige-btn hover:text-white">Instagram</a>
+        <a href="https://wa.me/9779840261629" target="_blank"
+          class="px-5 py-[9px] border border-border text-[0.62rem] tracking-[0.14em] uppercase text-text-mid font-medium transition-all duration-300 hover:bg-beige-btn hover:border-beige-btn hover:text-white">WhatsApp</a>
+        <a href="https://www.tiktok.com/@floral.roots.deco" target="_blank"
+          class="px-5 py-[9px] border border-border text-[0.62rem] tracking-[0.14em] uppercase text-text-mid font-medium transition-all duration-300 hover:bg-beige-btn hover:border-beige-btn hover:text-white">TikTok</a>
+      </div>
+    </div>
+
+    <!-- Right: Map -->
+    <div class="overflow-hidden h-[440px] shadow-card reveal rd2 max-[960px]:h-[300px]">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d624.8611952614849!2d85.51875369572667!3d27.632298425190505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb0f004c0034c1%3A0xda3ee0551f4be559!2sFloral%20Roots%20%26Decor!5e0!3m2!1sen!2snp!4v1777729746473!5m2!1sen!2snp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+  </div>
+
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+  <footer class="bg-dark py-[72px] px-[60px] pb-9 max-[960px]:py-14 max-[960px]:px-6 max-[960px]:pb-7">
+    <div
+      class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-12 pb-12 border-b border-white/[0.08] max-[960px]:grid-cols-2 max-[960px]:gap-8 max-[600px]:grid-cols-1 max-[600px]:gap-7">
+
+      <div>
+        <div class="font-playfair text-[1.4rem] text-cream mb-3">Floral Roots <em
+            class="not-italic text-gold-light"><span>&</span></em>  Decors</div>
+        <p class="text-[0.8rem] text-cream/40 leading-[1.85] font-light max-w-[220px]">Rooted in Quality, Flourishing in
+          Beauty. Making every celebration extraordinary since 2024.</p>
+        <div class="flex gap-2 mt-6 flex-wrap">
+          <span class="text-[0.65rem] px-3 py-1 rounded-full border border-gold/30 text-gold">Banepa</span>
+          <span class="text-[0.65rem] px-3 py-1 rounded-full border border-gold/30 text-gold">Nepal</span>
+          <span class="text-[0.65rem] px-3 py-1 rounded-full border border-gold/30 text-gold">Since 2024</span>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-[0.6rem] tracking-[0.22em] uppercase text-gold mb-5 font-medium">Services</h4>
+        <ul class="flex flex-col gap-2.5">
+          <li><a href="#services"
+              class="text-[0.82rem] text-cream/50 font-light transition-colors duration-300 hover:text-cream/100">Wedding
+              Decor</a></li>
+          <li><a href="#services"
+              class="text-[0.82rem] text-cream/50 font-light transition-colors duration-300 hover:text-cream/100">Event
+              Planning</a></li>
+          <li><a href="#services"
+              class="text-[0.82rem] text-cream/50 font-light transition-colors duration-300 hover:text-cream/100">Floral
+              Arrangements</a></li>
+          <li><a href="#services"
+              class="text-[0.82rem] text-cream/50 font-light transition-colors duration-300 hover:text-cream/100">Car
+              Decoration</a></li>
+          <li><a href="#services"
+              class="text-[0.82rem] text-cream/50 font-light transition-colors duration-300 hover:text-cream/100">Chocolate
+              Bouquets</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-[0.6rem] tracking-[0.22em] uppercase text-gold mb-5 font-medium">Navigate</h4>
+        <ul class="flex flex-col gap-2.5">
+          <li><a href="#home"
+              class="text-[0.82rem] text-cream/50 font-light transition-colors duration-300 hover:text-cream/100">Home</a>
+          </li>
+          <li><a href="#about"
+              class="text-[0.82rem] text-cream/50 font-light transition-colors duration-300 hover:text-cream/100">About
+              Us</a></li>
+          <li><a href="#gallery"
+              class="text-[0.82rem] text-cream/50 font-light transition-colors duration-300 hover:text-cream/100">Gallery</a>
+          </li>
+          <li><a href="#testimonials"
+              class="text-[0.82rem] text-cream/50 font-light transition-colors duration-300 hover:text-cream/100">Reviews</a>
+          </li>
+          <li><a href="booking.floralrootsdecors.com.np"
+              class="text-[0.82rem] text-cream/50 font-light transition-colors duration-300 hover:text-cream/100">Book
+              Now</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-[0.6rem] tracking-[0.22em] uppercase text-gold mb-5 font-medium">Contact</h4>
+        <ul class="flex flex-col gap-2.5">
+          <li><a href="tel:9840261629"
+              class="text-[0.82rem] text-cream/50 font-light transition-colors duration-300 hover:text-cream/100">9840261629</a>
+          </li>
+          <li><a href="tel:9843729421"
+              class="text-[0.82rem] text-cream/50 font-light transition-colors duration-300 hover:text-cream/100">9843729421</a>
+          </li>
+          <li><a href="mailto:floralrootsdecors@gmail.com"
+              class="text-[0.82rem] text-cream/50 font-light transition-colors duration-300 hover:text-cream/100">floralrootsdecors@gmail.com</a>
+          </li>
+          <li><a href="#contact"
+              class="text-[0.82rem] text-cream/50 font-light transition-colors duration-300 hover:text-cream/100">Banepa,
+              Kavrepalanchok</a></li>
+        </ul>
+      </div>
+
+    </div>
+    <div
+      class="pt-7 flex justify-between items-center text-[0.7rem] text-cream/[0.26] flex-wrap gap-2.5 max-[600px]:flex-col max-[600px]:items-start max-[600px]:gap-2">
+      <p>© 2026 Floral Roots &amp; Decors. Founded by <strong class="text-gold-light">Nishan Khadka</strong></p>
+      <p>Built by <strong><a href="https://rachitpokhrel.com.np" target="_blank" rel="noopener"
+            class="text-gold-light hover:opacity-80 transition-opacity duration-200">Rachit Pokhrel</a></strong></p>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════ FLOATING WHATSAPP ═══════════════════ -->
+  <a href="https://wa.me/9779840261629?text=Hello%20Floral%20Roots%20%26%20Decors%2C%20I%20hope%20you%20are%20doing%20well.%20I%20am%20interested%20in%20your%20services%20and%20would%20appreciate%20more%20information.%20Looking%20forward%20to%20your%20response."
+    class="fixed bottom-7 right-7 z-[900] w-[54px] h-[54px] rounded-full bg-[#25d366] flex items-center justify-center shadow-[0_6px_22px_rgba(37,211,102,0.4)] transition-all duration-300 hover:scale-110 hover:shadow-[0_10px_30px_rgba(37,211,102,0.5)] text-white group"
+    target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <span
+      class="fab-tip absolute right-[66px] bg-text text-white px-[14px] py-[7px] rounded-sm text-[0.72rem] whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300">Chat
+      with us!</span>
+    <svg class="w-[26px] h-[26px]" viewBox="0 0 24 24" fill="currentColor">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  </a>
+
+  <!-- ═══════════════════ JAVASCRIPT ═══════════════════ -->
+  <script>
+    /* ----- HAMBURGER ----- */
+    const ham = document.getElementById('ham');
+    const mobMenu = document.getElementById('mob-menu');
+    const mobClose = document.getElementById('mob-close');
+
+    ham.addEventListener('click', () => {
+      ham.classList.toggle('open');
+      const isOpen = ham.classList.contains('open');
+      mobMenu.style.opacity = isOpen ? '1' : '0';
+      mobMenu.style.pointerEvents = isOpen ? 'all' : 'none';
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    mobClose.addEventListener('click', () => {
+      ham.classList.remove('open');
+      mobMenu.style.opacity = '0';
+      mobMenu.style.pointerEvents = 'none';
+      document.body.style.overflow = '';
+    });
+    mobMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        ham.classList.remove('open');
+        mobMenu.style.opacity = '0';
+        mobMenu.style.pointerEvents = 'none';
+        document.body.style.overflow = '';
+      });
+    });
+
+    /* ----- ACTIVE NAV ----- */
+    const sections = document.querySelectorAll('section[id], div[id]');
+    const navLinks = document.querySelectorAll('.nav-items a');
+    const navObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.nav-items a[href="#${e.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { threshold: 0.35 });
+    sections.forEach(s => navObserver.observe(s));
+
+    /* ----- SCROLL REVEAL ----- */
+    const revEls = document.querySelectorAll('.reveal');
+    const revObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); revObs.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    revEls.forEach(el => revObs.observe(el));
+
+    /* ----- COUNTER ----- */
+    function animCounter(el) {
+      const target = parseInt(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      const dur = 1800; const start = performance.now();
+      const run = now => {
+        const t = Math.min((now - start) / dur, 1);
+        const ease = 1 - Math.pow(1 - t, 3);
+        el.textContent = Math.round(ease * target) + suffix;
+        if (t < 1) requestAnimationFrame(run);
+      };
+      requestAnimationFrame(run);
+    }
+    const cntObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { animCounter(e.target); cntObs.unobserve(e.target); } });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.counter').forEach(el => cntObs.observe(el));
+
+    /* ----- GALLERY DRAG SCROLL ----- */
+    const track = document.getElementById('gallery-track');
+    let isDown = false, startX, scrollLeft;
+    track.addEventListener('mousedown', e => {
+      isDown = true; startX = e.pageX - track.offsetLeft; scrollLeft = track.scrollLeft;
+    });
+    document.addEventListener('mouseup', () => { isDown = false; });
+    track.addEventListener('mousemove', e => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - track.offsetLeft;
+      track.scrollLeft = scrollLeft - (x - startX) * 1.2;
+    });
+    document.getElementById('gal-prev').addEventListener('click', () => track.scrollBy({ left: -320, behavior: 'smooth' }));
+    document.getElementById('gal-next').addEventListener('click', () => track.scrollBy({ left: 320, behavior: 'smooth' }));
+
+    /* ----- LIGHTBOX ----- */
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lb-img');
+    const lbTitle = document.getElementById('lb-title');
+    const lbLoc = document.getElementById('lb-loc');
+
+    document.querySelectorAll('.gal-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const img = item.querySelector('img');
+        lbImg.src = img.src; lbImg.alt = img.alt;
+        lbTitle.textContent = item.dataset.title;
+        lbLoc.textContent = item.dataset.loc;
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    document.getElementById('lb-close').addEventListener('click', closeLb);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLb(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+    function closeLb() { lightbox.classList.remove('open'); document.body.style.overflow = ''; }
+
+    /* ----- BUDGET PILLS ----- */
+    function selectBudget(btn) {
+      document.querySelectorAll('.budget-pill').forEach(p => {
+        p.classList.remove('border-gold', 'bg-green-dark', 'text-white');
+        p.classList.add('border-border', 'text-text-muted');
+      });
+      btn.classList.add('border-gold', 'bg-green-dark', 'text-white');
+      btn.classList.remove('border-border', 'text-text-muted');
+    }
+
+    /* ----- FORM VALIDATION ----- */
+    function getVal(id) { return document.getElementById(id).value.trim(); }
+    function setError(id, show) {
+      const inp = document.getElementById(id);
+      if (show) inp.classList.add('error'); else inp.classList.remove('error');
+    }
+
+    const dateInp = document.getElementById('inp-date');
+    dateInp.min = new Date().toISOString().split('T')[0];
+
+    ['inp-name', 'inp-phone', 'inp-event', 'inp-date'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('input', () => setError(id, false));
+    });
+
+    function submitBooking() {
+      let valid = true;
+      const name = getVal('inp-name');
+      const phone = getVal('inp-phone');
+      const event = getVal('inp-event');
+      const date = getVal('inp-date');
+
+      const phoneClean = phone.replace(/[\s\-+977]/g, '');
+      const phoneOk = /^(98|97)\d{8}$/.test(phoneClean);
+
+      setError('inp-name', !name || name.length < 2); if (!name || name.length < 2) valid = false;
+      setError('inp-phone', !phoneOk); if (!phoneOk) valid = false;
+      setError('inp-event', !event); if (!event) valid = false;
+      setError('inp-date', !date); if (!date) valid = false;
+
+      if (!valid) return;
+
+      const btn = document.getElementById('submit-btn');
+      btn.disabled = true;
+      btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" fill="none" style="animation:spin 0.8s linear infinite"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2z" stroke="currentColor" stroke-width="1.5" opacity="0.3"/><path d="M10 2a8 8 0 018 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>&nbsp;Sending...';
+
+      setTimeout(() => {
+        document.getElementById('booking-form-wrap').style.display = 'none';
+        const s = document.getElementById('form-success');
+        s.classList.remove('hidden');
+        s.classList.add('flex');
+      }, 1400);
+    }
+  </script>
+
+</body>
+
+</html>
