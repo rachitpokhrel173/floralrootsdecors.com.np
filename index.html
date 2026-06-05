@@ -443,160 +443,185 @@
             background: rgba(10, 20, 12, 0.72);
         }
 
-        /* ══════════════════════════════════════════════
-           WOW POPUP — Luxury Split with Floating Petals
-           ══════════════════════════════════════════════ */
-        #offer-popup {
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.5s ease;
-        }
+        /* ══ OFFER POPUP ══ */
+#offer-popup {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.45s ease;
+}
+#offer-popup.open {
+    opacity: 1;
+    pointer-events: all;
+}
+@keyframes popupSlideIn {
+    from { opacity: 0; transform: scale(0.93) translateY(20px); }
+    to   { opacity: 1; transform: scale(1)    translateY(0);    }
+}
+.popup-inner {
+    animation: popupSlideIn 0.5s cubic-bezier(0.34,1.3,0.64,1) both;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 620px;
+    background: #ffffff;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.3), 0 0 0 1px rgba(45,184,75,0.12);
+    display: flex;
+    flex-direction: row;
+}
+.popup-panel-left {
+    position: relative;
+    flex-shrink: 0;
+    width: 210px;
+    background: linear-gradient(160deg,#1a3d1e 0%,#0e2411 50%,#1a2e1c 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 36px 20px;
+    overflow: hidden;
+    min-height: 420px;
+}
+.popup-panel-right {
+    flex: 1;
+    padding: 36px 28px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    background: #ffffff;
+    min-width: 0;
+}
 
-        #offer-popup.open {
-            opacity: 1;
-            pointer-events: all;
-        }
+/* ── MOBILE: bottom sheet ── */
+@media (max-width: 560px) {
+    /* Backdrop aligned to bottom */
+    #offer-popup {
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 16px !important;
+}
+    /* Card: full-width bottom sheet */
+    .popup-inner {
+        border-radius: 16px;
+        flex-direction: column; 
+        max-width: 100%;
+        width: 100%;
+        max-height: 88dvh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        border-radius: 20px 20px 0 0;
+    }
+    /* Left panel → compact top banner */
+    .popup-panel-left {
+        width: 100%;
+        min-height: unset;
+        padding: 16px 60px 16px 16px; /* right padding keeps space for badge */
+        flex-direction: row;
+        align-items: center;
+        gap: 14px;
+        justify-content: flex-start;
+    }
+    .popup-brand-block {
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 12px !important;
+        text-align: left !important;
+    }
+    .popup-brand-block .popup-divider,
+    .popup-brand-block .popup-location {
+        display: none !important;
+    }
+    .popup-brand-block .popup-logo-img {
+        height: 52px !important;
+        width: 52px !important;
+    }
+    .popup-brand-block .popup-brand-name {
+        font-size: 0.9rem !important;
+    }
+    /* Badge: small, stays within banner, no overlap with close */
+    .popup-badge {
+        top: 50% !important;
+        right: 12px !important;
+        transform: translateY(-50%) rotate(-6deg) !important;
+        width: 50px !important;
+        height: 50px !important;
+        animation: none !important; /* stop jitter on mobile */
+    }
+    .popup-badge .badge-pct { font-size: 1rem !important; }
+    /* Hide decorative leaves on mobile */
+    .popup-leaf, .popup-leaf-2 { display: none !important; }
+    /* Right panel */
+    .popup-panel-right {
+        padding: 20px 20px 32px; /* generous bottom so last item not clipped */
+    }
+    /* Close button: top-right of PANEL (not overlapping banner) */
+    .popup-close-btn {
+        top: 14px !important;
+        right: 14px !important;
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 15px !important;
+        border-radius: 50% !important;
+        background: #f5f9f2 !important;
+        border: 1px solid #d0e8c8 !important;
+    }
+    .popup-headline { font-size: 1.25rem !important; }
+    .popup-body     { font-size: 0.78rem !important; }
+    .popup-perks span { font-size: 0.58rem !important; padding: 3px 7px !important; }
+    .popup-cta-btn { font-size: 0.52rem !important; letter-spacing: 0.13em !important; padding: 14px !important; }
+    .popup-skip-btn { font-size: 0.72rem !important; padding: 8px 0 !important; display: block; }
+}
 
-        @keyframes popupIn {
-            from {
-                opacity: 0;
-                transform: scale(0.88) translateY(30px);
-            }
+@keyframes shimmerBtn {
+    0%   { background-position: -200% center; }
+    100% { background-position:  200% center; }
+}
+.popup-cta-btn {
+    background: linear-gradient(90deg,#2db84b 0%,#4ecf68 40%,#2db84b 60%,#1e9438 100%);
+    background-size: 200% auto;
+    animation: shimmerBtn 2.5s linear infinite;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    padding: 13px;
+    font-family: 'Nunito',sans-serif;
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.popup-email-input {
+    outline: none;
+    transition: border-color 0.2s ease;
+    width: 100%;
+    padding: 11px 13px;
+    border: 1.5px solid #d0e8c8;
+    background: #f5f9f2;
+    font-family: 'Nunito',sans-serif;
+    font-size: 0.82rem;
+    color: #1a2e1c;
+    box-sizing: border-box;
+}
+.popup-email-input:focus { border-color: #2db84b !important; }
 
-            to {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
-        }
+@keyframes floatLeaf {
+    0%,100% { transform: translateY(0)     rotate(-3deg); }
+    50%      { transform: translateY(-10px) rotate(3deg);  }
+}
+.popup-leaf   { animation: floatLeaf 4s   ease-in-out infinite; }
+.popup-leaf-2 { animation: floatLeaf 5s   ease-in-out infinite; animation-delay: 1.5s; }
 
-        @keyframes petalFall {
-            0% {
-                transform: translateY(-20px) rotate(0deg) scale(0.8);
-                opacity: 0;
-            }
+@keyframes badgePop {
+    0%,100% { transform: rotate(-6deg) scale(1);    }
+    50%      { transform: rotate(-6deg) scale(1.06); }
+}
+.popup-badge { animation: badgePop 2.2s ease-in-out infinite; }
 
-            10% {
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateY(420px) rotate(360deg) scale(1.1);
-                opacity: 0;
-            }
-        }
-
-        @keyframes shimmer {
-            0% {
-                background-position: -200% center;
-            }
-
-            100% {
-                background-position: 200% center;
-            }
-        }
-
-        @keyframes glowPulse {
-
-            0%,
-            100% {
-                box-shadow: 0 0 0 0 rgba(45, 184, 75, 0.0);
-            }
-
-            50% {
-                box-shadow: 0 0 28px 8px rgba(45, 184, 75, 0.22);
-            }
-        }
-
-        @keyframes badgeBounce {
-
-            0%,
-            100% {
-                transform: rotate(-3deg) scale(1);
-            }
-
-            50% {
-                transform: rotate(-3deg) scale(1.08);
-            }
-        }
-
-        @keyframes timerTick {
-            0% {
-                transform: scaleY(1);
-            }
-
-            50% {
-                transform: scaleY(0.92);
-            }
-
-            100% {
-                transform: scaleY(1);
-            }
-        }
-
-        @keyframes fadeSlideUp {
-            from {
-                opacity: 0;
-                transform: translateY(16px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .popup-inner {
-            animation: popupIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
-        }
-
-        .petal {
-            position: absolute;
-            pointer-events: none;
-            animation: petalFall linear infinite;
-            font-size: 14px;
-        }
-
-        .discount-badge {
-            animation: badgeBounce 2.4s ease-in-out infinite;
-        }
-
-        .timer-digit {
-            animation: timerTick 1s ease-in-out infinite;
-        }
-
-        .shimmer-btn {
-            background: linear-gradient(90deg, #2db84b 0%, #4ecf68 40%, #2db84b 60%, #1e9438 100%);
-            background-size: 200% auto;
-            animation: shimmer 2.2s linear infinite;
-        }
-
-        .glow-ring {
+        .offer-pulse {
             animation: glowPulse 2.5s ease-in-out infinite;
         }
 
-        .popup-item-reveal {
-            animation: fadeSlideUp 0.5s ease both;
-        }
-
-        .popup-item-reveal:nth-child(1) {
-            animation-delay: 0.25s;
-        }
-
-        .popup-item-reveal:nth-child(2) {
-            animation-delay: 0.38s;
-        }
-
-        .popup-item-reveal:nth-child(3) {
-            animation-delay: 0.51s;
-        }
-
-        .popup-item-reveal:nth-child(4) {
-            animation-delay: 0.64s;
-        }
-
-        .popup-item-reveal:nth-child(5) {
-            animation-delay: 0.77s;
-        }
 
         /* ── progress bar ── */
         @keyframes progressDrain {
@@ -1018,7 +1043,8 @@
                     class="select-check absolute top-3 right-3 z-20 w-7 h-7 rounded-full bg-green items-center justify-center">
                     <svg class="w-4 h-4 stroke-white fill-none" stroke-width="2.2" viewBox="0 0 24 24">
                         <polyline points="20 6 9 17 4 12" />
-                    </svg></div>
+                    </svg>
+                </div>
                 <div
                     class="absolute inset-0 bg-ink opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0">
                 </div>
@@ -1053,7 +1079,8 @@
                     class="select-check absolute top-3 right-3 z-20 w-7 h-7 rounded-full bg-green items-center justify-center">
                     <svg class="w-4 h-4 stroke-white fill-none" stroke-width="2.2" viewBox="0 0 24 24">
                         <polyline points="20 6 9 17 4 12" />
-                    </svg></div>
+                    </svg>
+                </div>
                 <div
                     class="absolute inset-0 bg-ink opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0">
                 </div>
@@ -1094,7 +1121,8 @@
                     class="select-check absolute top-3 right-3 z-20 w-7 h-7 rounded-full bg-green items-center justify-center">
                     <svg class="w-4 h-4 stroke-white fill-none" stroke-width="2.2" viewBox="0 0 24 24">
                         <polyline points="20 6 9 17 4 12" />
-                    </svg></div>
+                    </svg>
+                </div>
                 <div
                     class="absolute inset-0 bg-ink opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0">
                 </div>
@@ -1131,7 +1159,8 @@
                     class="select-check absolute top-3 right-3 z-20 w-7 h-7 rounded-full bg-green items-center justify-center">
                     <svg class="w-4 h-4 stroke-white fill-none" stroke-width="2.2" viewBox="0 0 24 24">
                         <polyline points="20 6 9 17 4 12" />
-                    </svg></div>
+                    </svg>
+                </div>
                 <div
                     class="absolute inset-0 bg-ink opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0">
                 </div>
@@ -1166,7 +1195,8 @@
                     class="select-check absolute top-3 right-3 z-20 w-7 h-7 rounded-full bg-green items-center justify-center">
                     <svg class="w-4 h-4 stroke-white fill-none" stroke-width="2.2" viewBox="0 0 24 24">
                         <polyline points="20 6 9 17 4 12" />
-                    </svg></div>
+                    </svg>
+                </div>
                 <div
                     class="absolute inset-0 bg-ink opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0">
                 </div>
@@ -1202,7 +1232,8 @@
                     class="select-check absolute top-3 right-3 z-20 w-7 h-7 rounded-full bg-green items-center justify-center">
                     <svg class="w-4 h-4 stroke-white fill-none" stroke-width="2.2" viewBox="0 0 24 24">
                         <polyline points="20 6 9 17 4 12" />
-                    </svg></div>
+                    </svg>
+                </div>
                 <div
                     class="absolute inset-0 bg-ink opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0">
                 </div>
@@ -1373,7 +1404,8 @@
                 <div>
                     <div
                         class="text-[0.6rem] tracking-[0.28em] uppercase text-green font-medium mb-1.5 flex items-center gap-3">
-                        <span class="w-7 h-px bg-green inline-block"></span>Our Work</div>
+                        <span class="w-7 h-px bg-green inline-block"></span>Our Work
+                    </div>
                     <h2 class="font-playfair text-[clamp(1.7rem,2.8vw,2.6rem)] font-normal text-white">A Glimpse of <em
                             class="not-italic text-green-light">Our Beauty.</em></h2>
                 </div>
@@ -1779,7 +1811,8 @@
                         <svg class="w-[17px] h-[17px] stroke-green fill-none" stroke-width="1.7" viewBox="0 0 24 24">
                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
                             <circle cx="12" cy="10" r="3" />
-                        </svg></div>
+                        </svg>
+                    </div>
                     <div>
                         <div class="text-[0.58rem] tracking-[0.16em] uppercase text-ink-muted font-bold mb-1">Location
                         </div>
@@ -1793,7 +1826,8 @@
                         <svg class="w-[17px] h-[17px] stroke-green fill-none" stroke-width="1.7" viewBox="0 0 24 24">
                             <path
                                 d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.69 12 19.79 19.79 0 011.6 3.39 2 2 0 013.59 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.91 8.63a16 16 0 006 6l.91-.91a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
-                        </svg></div>
+                        </svg>
+                    </div>
                     <div>
                         <div class="text-[0.58rem] tracking-[0.16em] uppercase text-ink-muted font-bold mb-1">Phone
                         </div>
@@ -1809,7 +1843,8 @@
                         <svg class="w-[17px] h-[17px] stroke-green fill-none" stroke-width="1.7" viewBox="0 0 24 24">
                             <rect x="2" y="4" width="20" height="16" rx="2" />
                             <path d="M2 7l10 6 10-6" />
-                        </svg></div>
+                        </svg>
+                    </div>
                     <div>
                         <div class="text-[0.58rem] tracking-[0.16em] uppercase text-ink-muted font-bold mb-1">Email
                         </div><a href="mailto:floralrootsdecors@gmail.com"
@@ -1822,7 +1857,8 @@
                         <svg class="w-[17px] h-[17px] stroke-green fill-none" stroke-width="1.7" viewBox="0 0 24 24">
                             <circle cx="12" cy="12" r="9" />
                             <path d="M12 6v6l4 2" />
-                        </svg></div>
+                        </svg>
+                    </div>
                     <div>
                         <div class="text-[0.58rem] tracking-[0.16em] uppercase text-ink-muted font-bold mb-1">Hours
                         </div>
@@ -1969,187 +2005,146 @@
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════════════════
-         ✦  WOW POPUP — Luxury Cinematic Edition  ✦
-         ═══════════════════════════════════════════════════ -->
-    <div id="offer-popup" class="fixed inset-0 z-[1100] flex items-center justify-center p-4"
-        style="background:rgba(6,14,7,0.85);backdrop-filter:blur(6px);">
-
-        <!-- Falling petals container -->
-        <div id="petal-container" style="position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;">
-        </div>
-
-        <!-- Main card -->
-        <div class="popup-inner relative overflow-hidden"
-            style="width:100%;max-width:560px;background:#0e1f10;border:1px solid rgba(45,184,75,0.25);box-shadow:0 40px 100px rgba(0,0,0,0.7),0 0 0 1px rgba(45,184,75,0.1),inset 0 1px 0 rgba(255,255,255,0.04);">
-
-            <!-- Top gradient band -->
-            <div
-                style="height:4px;background:linear-gradient(90deg,#1e9438,#4ecf68,#f2b4a0,#4ecf68,#1e9438);background-size:200% auto;animation:shimmer 3s linear infinite;">
-            </div>
-
-            <!-- Glowing orbs -->
-            <div
-                style="position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(45,184,75,0.12) 0%,transparent 70%);pointer-events:none;">
-            </div>
-            <div
-                style="position:absolute;bottom:-40px;left:-40px;width:160px;height:160px;background:radial-gradient(circle,rgba(242,180,160,0.08) 0%,transparent 70%);pointer-events:none;">
-            </div>
-
-            <!-- Botanical SVG watermark -->
-            <svg style="position:absolute;right:20px;top:20px;opacity:0.06;pointer-events:none;" width="90" height="130"
-                viewBox="0 0 90 130" fill="none" stroke="#2db84b" stroke-width="1.3">
-                <path d="M45 8 Q52 32 45 56 Q38 32 45 8Z" />
-                <path d="M45 56 L45 125" />
-                <path d="M45 75 Q62 68 70 75" />
-                <path d="M45 98 Q28 91 20 98" />
+    <div id="offer-popup"
+     class="fixed inset-0 z-[1100] flex items-center justify-center p-4"
+     style="background:rgba(15,25,17,0.78);backdrop-filter:blur(5px);">
+ 
+    <div class="popup-inner">
+ 
+        <!-- ── LEFT / TOP PANEL ── -->
+        <div class="popup-panel-left">
+ 
+            <!-- Botanical BG SVG -->
+            <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.08;"
+                 viewBox="0 0 210 420" fill="none" preserveAspectRatio="xMidYMid slice">
+                <path d="M105 30 Q113 58 105 86 Q97 58 105 30Z"      stroke="#2db84b" stroke-width="1.5" fill="none"/>
+                <path d="M105 86 L105 200"                              stroke="#2db84b" stroke-width="1.5"/>
+                <path d="M105 115 Q126 107 136 115"                   stroke="#2db84b" stroke-width="1.2" fill="none"/>
+                <path d="M105 150 Q84 142 74 150"                     stroke="#2db84b" stroke-width="1.2" fill="none"/>
+                <path d="M38 70 Q44 94 38 118 Q32 94 38 70Z"         stroke="#f2b4a0" stroke-width="1"   fill="none" opacity="0.6"/>
+                <path d="M38 118 L38 190"                              stroke="#f2b4a0" stroke-width="1"   opacity="0.6"/>
+                <path d="M172 55 Q178 79 172 103 Q166 79 172 55Z"    stroke="#4ecf68" stroke-width="1"   fill="none" opacity="0.5"/>
+                <path d="M172 103 L172 190"                            stroke="#4ecf68" stroke-width="1"   opacity="0.5"/>
+                <path d="M105 250 Q113 278 105 306 Q97 278 105 250Z" stroke="#2db84b" stroke-width="1.5" fill="none" opacity="0.5"/>
+                <path d="M105 306 L105 400"                            stroke="#2db84b" stroke-width="1.5" opacity="0.5"/>
+                <circle cx="55"  cy="310" r="28" stroke="#2db84b" stroke-width="0.8" fill="none" opacity="0.12"/>
+                <circle cx="162" cy="340" r="18" stroke="#f2b4a0" stroke-width="0.8" fill="none" opacity="0.12"/>
             </svg>
-
-            <!-- Close -->
-            <button onclick="closeOffer()"
-                style="position:absolute;top:16px;right:16px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(45,184,75,0.2);background:rgba(45,184,75,0.06);color:rgba(255,255,255,0.5);cursor:pointer;z-index:10;font-size:16px;transition:all 0.2s ease;"
-                onmouseover="this.style.background='rgba(45,184,75,0.15)';this.style.color='white';"
-                onmouseout="this.style.background='rgba(45,184,75,0.06)';this.style.color='rgba(255,255,255,0.5)';">✕</button>
-
-            <div style="padding:32px 36px 28px;">
-
-                <!-- Eyebrow + live badge -->
-                <div class="popup-item-reveal" style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
-                    <div style="display:flex;align-items:center;gap:6px;">
-                        <span
-                            style="width:6px;height:6px;border-radius:50%;background:#2db84b;display:inline-block;box-shadow:0 0 6px #2db84b;animation:glowPulse 1.8s ease-in-out infinite;"></span>
-                        <span
-                            style="font-family:'Nunito',sans-serif;font-size:0.55rem;letter-spacing:0.28em;text-transform:uppercase;color:#4ecf68;font-weight:700;">Live
-                            Offer · Ends Soon</span>
-                    </div>
-                    <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(45,184,75,0.4),transparent);">
-                    </div>
+ 
+            <!-- Floating leaves (desktop only) -->
+            <svg class="popup-leaf"
+                 style="position:absolute;top:24px;left:16px;opacity:0.5;width:28px;"
+                 viewBox="0 0 40 58" fill="none">
+                <path d="M20 5 Q26 20 20 35 Q14 20 20 5Z" fill="#4ecf68"/>
+                <path d="M20 35 L20 53" stroke="#4ecf68" stroke-width="1.2"/>
+            </svg>
+            <svg class="popup-leaf-2"
+                 style="position:absolute;bottom:36px;right:12px;opacity:0.38;width:22px;"
+                 viewBox="0 0 40 58" fill="none">
+                <path d="M20 5 Q26 20 20 35 Q14 20 20 5Z" fill="#f2b4a0"/>
+                <path d="M20 35 L20 53" stroke="#f2b4a0" stroke-width="1.2"/>
+            </svg>
+ 
+            <!-- Brand mark -->
+            <div class="popup-brand-block"
+                 style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;">
+                <img src="Main__Logo__1.jpg"
+                     alt="Floral Roots & Decors Logo"
+                     class="popup-logo-img"
+                     style="height:80px;width:auto;object-fit:contain;flex-shrink:0;"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                <!-- SVG fallback -->
+                <svg style="display:none;width:56px;height:56px;flex-shrink:0;" viewBox="0 0 54 54" fill="none">
+                    <path d="M27 6 Q31 16 27 26 Q23 16 27 6Z" fill="#7aab5e"/>
+                    <path d="M19 10 Q24 20 19 30 Q14 20 19 10Z" fill="#f2b4a0"/>
+                    <path d="M35 10 Q40 20 35 30 Q30 20 35 10Z" fill="#f2b4a0"/>
+                    <path d="M27 26 L27 48" stroke="#4ecf68" stroke-width="1.5"/>
+                    <path d="M27 36 Q35 31 39 36" stroke="#7aab5e" stroke-width="1.5" fill="none"/>
+                </svg>
+                <div class="popup-brand-name"
+                     style="font-family:'Playfair Display',serif;font-size:1.0rem;color:white;line-height:1.25;">
+                    Floral Roots<br><em style="color:#4ecf68;font-style:italic;">&amp; Decors</em>
                 </div>
-
-                <!-- Main headline -->
-                <div class="popup-item-reveal" style="margin-bottom:20px;">
-                    <h2
-                        style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.1rem);font-weight:400;color:#ffffff;line-height:1.1;margin:0 0 8px;">
-                        Your dream wedding<br><em style="font-style:italic;color:#4ecf68;">just got sweeter.</em>
-                    </h2>
-                    <p
-                        style="font-family:'Nunito',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.45);font-weight:300;line-height:1.7;margin:0;">
-                        A limited seasonal gift — for celebrations booked this month.</p>
+                <div class="popup-divider" style="width:36px;height:1px;background:rgba(45,184,75,0.45);"></div>
+                <div class="popup-location"
+                     style="font-family:'Nunito',sans-serif;font-size:0.5rem;letter-spacing:0.24em;text-transform:uppercase;color:rgba(255,255,255,0.4);font-weight:600;">
+                    Banepa · Nepal
                 </div>
-
-                <!-- Discount hero block -->
-                <div class="popup-item-reveal glow-ring"
-                    style="background:rgba(45,184,75,0.07);border:1px solid rgba(45,184,75,0.22);padding:18px 22px;margin-bottom:20px;display:flex;align-items:center;gap:20px;">
-                    <!-- Big number -->
-                    <div class="discount-badge" style="flex-shrink:0;text-align:center;">
-                        <div
-                            style="font-family:'Playfair Display',serif;font-size:3.8rem;font-weight:600;color:#4ecf68;line-height:1;letter-spacing:-2px;">
-                            15<span style="font-size:1.8rem;color:#2db84b;">%</span></div>
-                        <div
-                            style="font-family:'Nunito',sans-serif;font-size:0.52rem;letter-spacing:0.22em;text-transform:uppercase;color:#2db84b;font-weight:700;margin-top:2px;">
-                            OFF</div>
-                    </div>
-                    <!-- Divider -->
-                    <div style="width:1px;height:60px;background:rgba(45,184,75,0.25);flex-shrink:0;"></div>
-                    <!-- Details -->
-                    <div>
-                        <div
-                            style="font-family:'Playfair Display',serif;font-size:0.95rem;color:white;margin-bottom:5px;">
-                            Wedding & Event Decor</div>
-                        <div
-                            style="font-family:'Nunito',sans-serif;font-size:0.76rem;color:rgba(255,255,255,0.45);font-weight:300;line-height:1.6;">
-                            + Free bridal car decoration<br>+ Mood board consultation</div>
-                    </div>
-                </div>
-
-                <!-- Perks row -->
-                <div class="popup-item-reveal" style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px;">
-                    <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:12px;">🌸</span><span
-                            style="font-family:'Nunito',sans-serif;font-size:0.74rem;color:rgba(255,255,255,0.55);font-weight:300;">Priority
-                            booking</span></div>
-                    <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:12px;">🌿</span><span
-                            style="font-family:'Nunito',sans-serif;font-size:0.74rem;color:rgba(255,255,255,0.55);font-weight:300;">Fresh
-                            florals</span></div>
-                    <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:12px;">✨</span><span
-                            style="font-family:'Nunito',sans-serif;font-size:0.74rem;color:rgba(255,255,255,0.55);font-weight:300;">Banepa
-                            to KTM</span></div>
-                </div>
-
-                <!-- Timer -->
-                <div class="popup-item-reveal" style="display:flex;align-items:center;gap:10px;margin-bottom:22px;">
-                    <span
-                        style="font-family:'Nunito',sans-serif;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.3);font-weight:600;">Offer
-                        resets in</span>
-                    <div style="display:flex;gap:6px;align-items:center;">
-                        <div
-                            style="background:rgba(45,184,75,0.1);border:1px solid rgba(45,184,75,0.2);padding:5px 10px;min-width:42px;text-align:center;">
-                            <div id="popup-hours" class="timer-digit"
-                                style="font-family:'Playfair Display',serif;font-size:1.2rem;color:#4ecf68;line-height:1;">
-                                --</div>
-                            <div
-                                style="font-family:'Nunito',sans-serif;font-size:0.45rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:1px;">
-                                hrs</div>
-                        </div>
-                        <span style="color:rgba(45,184,75,0.5);font-size:1rem;">:</span>
-                        <div
-                            style="background:rgba(45,184,75,0.1);border:1px solid rgba(45,184,75,0.2);padding:5px 10px;min-width:42px;text-align:center;">
-                            <div id="popup-mins" class="timer-digit"
-                                style="font-family:'Playfair Display',serif;font-size:1.2rem;color:#4ecf68;line-height:1;">
-                                --</div>
-                            <div
-                                style="font-family:'Nunito',sans-serif;font-size:0.45rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:1px;">
-                                min</div>
-                        </div>
-                        <span style="color:rgba(45,184,75,0.5);font-size:1rem;">:</span>
-                        <div
-                            style="background:rgba(45,184,75,0.1);border:1px solid rgba(45,184,75,0.2);padding:5px 10px;min-width:42px;text-align:center;">
-                            <div id="popup-secs" class="timer-digit"
-                                style="font-family:'Playfair Display',serif;font-size:1.2rem;color:#4ecf68;line-height:1;">
-                                --</div>
-                            <div
-                                style="font-family:'Nunito',sans-serif;font-size:0.45rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:1px;">
-                                sec</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Progress bar -->
-                <div style="height:2px;background:rgba(45,184,75,0.1);margin-bottom:22px;overflow:hidden;">
-                    <div class="progress-drain"
-                        style="height:100%;background:linear-gradient(90deg,#2db84b,#4ecf68);--duration:86400s;"></div>
-                </div>
-
-                <!-- CTA buttons -->
-                <div class="popup-item-reveal" style="display:flex;gap:10px;flex-wrap:wrap;">
-                    <a href="https://booking.floralrootsdecors.com.np" target="_blank" onclick="closeOffer()"
-                        class="shimmer-btn"
-                        style="flex:1;min-width:140px;display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 20px;font-family:'Nunito',sans-serif;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:700;color:white;border:none;cursor:pointer;text-decoration:none;">
-                        Claim Offer &amp; Book →
-                    </a>
-                    <a href="https://wa.me/9779840261629?text=Hello%2C%20I%20saw%20the%2015%25%20seasonal%20offer%20on%20your%20website%21%20I%20am%20interested."
-                        target="_blank" onclick="closeOffer()"
-                        style="flex-shrink:0;display:flex;align-items:center;justify-content:center;gap:7px;padding:13px 18px;font-family:'Nunito',sans-serif;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:700;color:#4ecf68;border:1.5px solid rgba(45,184,75,0.4);background:transparent;cursor:pointer;text-decoration:none;transition:all 0.25s;"
-                        onmouseover="this.style.background='rgba(45,184,75,0.1)'"
-                        onmouseout="this.style.background='transparent'">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="#4ecf68">
-                            <path
-                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                        </svg>
-                        WhatsApp
-                    </a>
-                </div>
-
-                <!-- Skip -->
-                <button onclick="closeOffer()"
-                    style="display:block;width:100%;margin-top:14px;text-align:center;font-family:'Nunito',sans-serif;font-size:0.68rem;color:rgba(255,255,255,0.2);background:none;border:none;cursor:pointer;transition:color 0.2s;letter-spacing:0.05em;"
-                    onmouseover="this.style.color='rgba(255,255,255,0.5)'"
-                    onmouseout="this.style.color='rgba(255,255,255,0.2)'">
-                    I don't want a discount — skip
+            </div>
+ 
+            <!-- Discount badge -->
+            <div class="popup-badge"
+                 style="position:absolute;top:18px;right:-12px;background:#2db84b;width:62px;height:62px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(45,184,75,0.55);z-index:2;">
+                <div class="badge-pct"
+                     style="font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:600;color:white;line-height:1;">15%</div>
+                <div style="font-family:'Nunito',sans-serif;font-size:0.4rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.9);font-weight:700;">OFF</div>
+            </div>
+        </div><!-- /popup-panel-left -->
+ 
+        <!-- ── RIGHT / BOTTOM PANEL ── -->
+        <div class="popup-panel-right">
+ 
+            <!-- Close button — now has class for mobile override -->
+            <button class="popup-close-btn"
+                    onclick="closeOffer()"
+                    style="position:absolute;top:12px;right:12px;width:28px;height:28px;display:flex;align-items:center;justify-content:center;background:none;border:1px solid #e8f5e2;cursor:pointer;color:#9aad9c;font-size:14px;transition:all 0.2s ease;z-index:10;"
+                    onmouseover="this.style.borderColor='#2db84b';this.style.color='#2db84b';"
+                    onmouseout="this.style.borderColor='#e8f5e2';this.style.color='#9aad9c';">✕</button>
+ 
+            <!-- Eyebrow -->
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+                <span style="width:20px;height:1px;background:#2db84b;display:inline-block;"></span>
+                <span style="font-family:'Nunito',sans-serif;font-size:0.52rem;letter-spacing:0.26em;text-transform:uppercase;color:#2db84b;font-weight:700;">Welcome Offer</span>
+            </div>
+ 
+            <!-- Headline -->
+            <h2 class="popup-headline"
+                style="font-family:'Playfair Display',serif;font-size:clamp(1.2rem,2.5vw,1.65rem);font-weight:400;color:#1a2e1c;line-height:1.15;margin:0 0 8px;">
+                Get <em style="color:#2db84b;font-style:italic;">15% Off</em><br>Your First Booking
+            </h2>
+ 
+            <!-- Body -->
+            <p class="popup-body"
+               style="font-family:'Nunito',sans-serif;font-size:0.8rem;color:#6b8a6e;font-weight:300;line-height:1.7;margin:0 0 16px;">
+                Sign up and receive an exclusive seasonal discount on wedding or event decoration — plus a
+                <strong style="font-weight:600;color:#1a2e1c;">free bridal car decoration.</strong>
+            </p>
+ 
+            <!-- Perks -->
+            <div class="popup-perks" style="display:flex;gap:7px;flex-wrap:wrap;margin-bottom:18px;">
+                <span style="display:inline-flex;align-items:center;gap:4px;background:#e6f7ea;border:1px solid #c8edd0;padding:4px 9px;font-family:'Nunito',sans-serif;font-size:0.62rem;color:#1e9438;font-weight:600;">🌸 Free Car Decor</span>
+                <span style="display:inline-flex;align-items:center;gap:4px;background:#fef2ee;border:1px solid #f8d0c2;padding:4px 9px;font-family:'Nunito',sans-serif;font-size:0.62rem;color:#e8967e;font-weight:600;">✨ Priority Booking</span>
+            </div>
+ 
+            <!-- Input + CTA -->
+            <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px;">
+                <input id="popup-email"
+                       type="email"
+                       placeholder="Enter your email address"
+                       class="popup-email-input"
+                       onkeydown="if(event.key==='Enter')claimPopupOffer()"/>
+                <button onclick="claimPopupOffer()" class="popup-cta-btn">
+                    CLAIM 15% OFF + FREE CAR DECOR →
                 </button>
-
-            </div><!-- /padding wrapper -->
-        </div><!-- /popup-inner -->
-    </div><!-- /#offer-popup -->
+            </div>
+ 
+            <!-- Skip — larger tap target on mobile -->
+            <button class="popup-skip-btn"
+                    onclick="closeOffer()"
+                    style="background:none;border:none;cursor:pointer;font-family:'Nunito',sans-serif;font-size:0.68rem;color:#9aad9c;text-decoration:underline;text-underline-offset:3px;padding:4px 0;transition:color 0.2s;text-align:left;min-height:36px;"
+                    onmouseover="this.style.color='#6b8a6e'"
+                    onmouseout="this.style.color='#9aad9c'">
+                No thanks, I'll pay full price
+            </button>
+ 
+            <!-- Privacy -->
+            <p style="font-family:'Nunito',sans-serif;font-size:0.62rem;color:#9aad9c;font-weight:300;margin:8px 0 0;line-height:1.5;">
+                🔒 We respect your privacy. No spam, ever.
+            </p>
+        </div><!-- /popup-panel-right -->
+ 
+    </div><!-- /popup-inner -->
+</div><!-- /#offer-popup -->
 
     <!-- ═══════════════════ FLOATING WHATSAPP ═══════════════════ -->
     <a href="https://wa.me/9779840261629?text=Hello%20Floral%20Roots%20%26%20Decors%2C%20I%20hope%20you%20are%20doing%20well.%20I%20am%20interested%20in%20your%20services%20and%20would%20appreciate%20more%20information.%20Looking%20forward%20to%20your%20response."
@@ -2361,68 +2356,32 @@
            OFFER POPUP — Luxury Cinematic Edition
            ══════════════════════════════════════════ */
 
-        /* — Countdown to midnight — */
-        function updatePopupTimer() {
-            const now = new Date();
-            const midnight = new Date(); midnight.setHours(24, 0, 0, 0);
-            let diff = Math.floor((midnight - now) / 1000);
-            const h = Math.floor(diff / 3600); diff -= h * 3600;
-            const m = Math.floor(diff / 60);
-            const s = diff % 60;
-            const fmt = n => String(n).padStart(2, '0');
-            document.getElementById('popup-hours').textContent = fmt(h);
-            document.getElementById('popup-mins').textContent = fmt(m);
-            document.getElementById('popup-secs').textContent = fmt(s);
-        }
-        updatePopupTimer();
-        setInterval(updatePopupTimer, 1000);
-
-        /* — Falling petals — */
-        function spawnPetal() {
-            const container = document.getElementById('petal-container');
-            if (!container) return;
-            const petals = ['🌸', '🌺', '🌹', '🌷', '✿', '❀'];
-            const el = document.createElement('span');
-            el.className = 'petal';
-            el.textContent = petals[Math.floor(Math.random() * petals.length)];
-            el.style.left = Math.random() * 100 + '%';
-            el.style.animationDuration = (3 + Math.random() * 4) + 's';
-            el.style.animationDelay = (Math.random() * 2) + 's';
-            el.style.fontSize = (10 + Math.random() * 10) + 'px';
-            el.style.opacity = (0.15 + Math.random() * 0.25).toString();
-            container.appendChild(el);
-            setTimeout(() => el.remove(), 8000);
-        }
-        let petalInterval = null;
-
-        /* — Open / close — */
         function closeOffer() {
             const p = document.getElementById('offer-popup');
-            p.style.opacity = '0';
-            p.style.pointerEvents = 'none';
+            p.style.opacity = '0'; p.style.pointerEvents = 'none';
+            document.body.style.overflow = '';
             sessionStorage.setItem('offerSeen', '1');
-            if (petalInterval) { clearInterval(petalInterval); petalInterval = null; }
         }
         function openOffer() {
             const p = document.getElementById('offer-popup');
-            p.style.opacity = '1';
-            p.style.pointerEvents = 'all';
+            p.style.opacity = '1'; p.style.pointerEvents = 'all';
             document.body.style.overflow = 'hidden';
-            petalInterval = setInterval(spawnPetal, 700);
-            // spawn a few immediately
-            for (let i = 0; i < 6; i++) setTimeout(spawnPetal, i * 120);
         }
-
-        if (!sessionStorage.getItem('offerSeen')) {
-            setTimeout(openOffer, 3500);
-        } else {
-            const p = document.getElementById('offer-popup');
-            if (p) { p.style.opacity = '0'; p.style.pointerEvents = 'none'; }
+        function claimPopupOffer() {
+            const email = document.getElementById('popup-email');
+            const val = email ? email.value.trim() : '';
+            if (!val || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+                if (email) { email.style.borderColor = '#e05252'; email.focus(); }
+                return;
+            }
+            closeOffer();
+            window.open('https://booking.floralrootsdecors.com.np', '_blank');
         }
-
+        if (!sessionStorage.getItem('offerSeen')) { setTimeout(openOffer, 3500); }
         document.getElementById('offer-popup').addEventListener('click', function (e) {
             if (e.target === this) closeOffer();
         });
+
     </script>
 
 </body>
